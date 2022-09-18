@@ -278,9 +278,8 @@ v = \frac{bcR}{a +b} -\frac{bcR_0^{\frac{a}{b} + 1}}{a + b} R^{-{a \over b}}
 $$
 
 
- 
-$$
 
 $$
 
+$$
 
