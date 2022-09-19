@@ -96,6 +96,8 @@ $$
 B\kz = \sqhalf (i\kz + \ko) \\
 B\ko = \sqhalf (\kz + i\ko)
 $$
+with $\ket 0$ and $\ko$ share equal probability ($|1|^2 = |i|^2$)
+
 and
 $$
 B \otimes B = \half\colvec{-1 & i & i & 1 \\ i & -1 & 1 & i \\ i & 1 & -1 & i \\ 1 & i & i & -1}
@@ -147,5 +149,4 @@ That is basically
 $$
 (H\ko)(H\ko)(H\kz) = \frac{1}{\sqrt[3]2}(\kz - \ko) (\kz - \ko)(\kz + \ko) \\ = \frac{1}{\sqrt[3]2}(\kzzz + \kzzo - \kzoz -\kzoo - \kozz - \kozo + \kooz + \kooo)
 $$
-
 
