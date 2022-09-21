@@ -252,13 +252,13 @@ Note:
 
 The initial state is
 
-![image-20220905102540007](/home/yuqing/Documents/Cache/PHYS370HW2.assets/image-20220905102540007.png)
+![image-20220905102540007](./PHYS370HW2.assets/image-20220905102540007.png)
 
 The state need to be teleported is on the first bit. (The second bar with purple color indicate a phase angle of $\pi / 4$)
 
 The final state, the state is teleported to the third bit (which is the top bit in the circuit)
 
-![image-20220905103133773](/home/yuqing/Documents/Cache/PHYS370HW2.assets/image-20220905103133773.png)
+![image-20220905103133773](./PHYS370HW2.assets/image-20220905103133773.png)
 
 ##### B)
 
@@ -328,6 +328,6 @@ There are four cases:
 
 So that Bob could get the original $\ket \psi$
 
-![image-20220905110701837](/home/yuqing/Documents/Cache/PHYS370HW2.assets/image-20220905110701837.png)
+![image-20220905110701837](./PHYS370HW2.assets/image-20220905110701837.png)
 
 Just as the previous one, Bob get the desired state (we only care the last bit of the state) as the original one.

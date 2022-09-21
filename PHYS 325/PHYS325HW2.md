@@ -85,13 +85,13 @@ $$
 
 >A bead slides out along a frictionless rod of length $R$ that is fixed at point $O$ and rotating in a horizontal plane at a constant rate $\omega$ as shown below. At time $t = t_0$ and angle $\phi = 90^\circ$, the bead flies off the rod (i.e. when $r = R$). Just before the lead slides off the rod it has $\dot r (t = t_0) = {3\over 4}\omega R$. After the bead slides off the rod it experiences a friction force with $\vec F_f = -\kappa\vec v$, where $\kappa$ is a constant.
 >
-><img src="1.assets/image-20220915165416690.png" alt="image-20220915165416690" style="zoom:25%;" />
+><img src="./PHYS325HW2.assets/image-20220915165416690.png" alt="image-20220915165416690" style="zoom:25%;" />
 
 ##### (a)
 
 > What is the bead's trajectory after it flies off the rod? Draw a sketch and be as accurate as you can.
 
-<img src="1.assets/image-20220915170217156.png" alt="image-20220915170217156" style="zoom:33%;" />
+<img src="./PHYS325HW2.assets/image-20220915170217156.png" alt="image-20220915170217156" style="zoom:33%;" />
 
 ##### (b)
 
@@ -177,15 +177,15 @@ $$
 
 the red line is when $u$ = constant, the greed line is when $v$ = constant.
 
-![image-20220915201348075](1.assets/image-20220915201348075.png)
+![image-20220915201348075](./PHYS325HW2.assets/image-20220915201348075.png)
 
 ##### (c)
 
->Derive the gradient of a scalar function, $\vec \nabla f (u,v ,z)$ in parabolic cylindrical coordinates $(u, v, z)$. Hint: recall the Nabla operator in Cartesian coordinates $\vec \nabla = \ex \pderin x + \ey \pderin y + \ez \pderin z$
+>Derive the gradient of a scalar function, $\vec \nabla f (u,v ,z)$ in parabolic cylindrical coordinates $(u, v, z)$. Hint: recall the Nabla operator in Cartesian coordinates $\vec \nabla = \ex \pderi{}{x} + \ey \pderin{y} + \ez \pderin{z}$
 
 the line element is
 $$
-d \vec l = \deri{\bold r }{u}du  + \deri{\bold r}{v}dv + \deri{\bold r}{z}dz = \sqrt{u^ 2+ v^ 2} \e u du + \sqrt{u^ 2+ v^ 2} \e v dv + \ez dz 
+d \vec l = \deri{\bold r }{u}du  + \deri{\bold r}{v}dv + \deri{\bold r}{z}dz = \sqrt{u^ 2+ v^ 2} \e u du + \sqrt{u^ 2+ v^ 2} \e v dv + \ez dz
 $$
 So, the corresponding gradient is:
 $$

@@ -1,8 +1,0 @@
-#### My story
-
-I am interested in computer science. I started to show intensive interests in these subjects when I went to international high school where teaching method are more diverse and more freedom are given. 
-
-I learned my first programming language JavaScript in a software programming club. Starting slow, I manifested great passion in developing games and graphical interface for website. With a need to render in-game object and detect the collision between them, I started to look deep into the computer graphics and mathematics involved, and it's that time I found the beauty of the math, the geometric interpretation of the linear algebra. In the second year of the high school, I started to look deep into computer graphics, and in my independent research, I re-implemented the diffusion curve in the web browser. Also with an interest in the web development, I learned the mainstream web framework and relevant technologies, and helped design an online museum website for our high school.
-
-After I went to university, I didn't go to the desired major, the computer science, as I wanted. However, I continued explore the computer science and its relevant topics. I took a computational physics course, and I was amazed how physics process could be simulated in a simple yet powerful way. Also, I am currently working an improvement of latex's syntax after annoyed by the current redundant and non-readable latex syntax. To do design a new markdown language, I explore multiple language with different paradigm, like APL, smalltalk, prolog, and haskell,  from 1960s to current days. I was amazed by the different approach of solving the computational problems. I am currently working on this project for it to be used by the open-source community one day.
-
