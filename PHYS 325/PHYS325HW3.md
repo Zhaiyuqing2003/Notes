@@ -172,10 +172,96 @@ $$
 
 We want to find the critical point of the $U_{\text{eff}}$:
 $$
-\deri{U}{r}  = -\frac{L^2}{mr^3} - Ke^{-\a r}(\frac{\a}{r} + \invfrac{r^2})
+\deri{U}{r}  = -\frac{L^2}{mr^3} - K\invfrac {e^{\a r}}(\frac{\a}{r} + \invfrac{r^2})
 $$
 
 $$
 \lim_{r \to 0} U_{\text{eff}}  = \infin \quad \lim_{r \to \infin}U_{\text{eff}} = 0
 $$
+
+We want to let $\deri{U}{r} = 0$, for $r > 0$
+$$
+\frac{L^2}{mr^3} = -Ke^{-\a r}(\frac{\a}{r} + \frac{1}{r^2}) \\
+-\frac{L^2}{Km} = e^{-\a r}(\a r^2 + r)
+$$
+but the above equation seems unsolvable:
+
+![image-20220922212517830](PHYS325HW3.assets/image-20220922212517830.png)
+
+So, we will examine the property of $y = e^{-\a r}(\a r^2 + r)$
+$$
+\deri{y}{r} = e^{-\a r}(1+2\a r) - \a e^{-\a r}(r + \a r^2)
+$$
+Set the $\deri{y}{r} = 0$, we find
+$$
+\a^2 r^2 - \a r -1 = 0 \\
+r = \frac{1 \pm \sqrt 5}{2\a}
+$$
+Since $\a \ge 0$, we know that there is only one root (one critical point for $y$) when $r > 0$. For $y$
+$$
+\lim_{r \to 0} y = 0 \quad \lim_{r \to \infin} y = 0 \quad y(r) > 0 \ \text{for}\  (r>0)
+$$
+That means $y$ will start $0$, goes to a maximum, and then approach to $0$, which looks roughly like:
+
+![photo_2022-09-23_10-25-26](PHYS325HW3.assets/photo_2022-09-23_10-25-26.jpg)
+
+So, for the original $\deri{U}{r} = 0$, there are few situations:
+
+1. , $-\frac{L^2}{Km} > \max( e^{-\a r}(\a r^2 + r))$, as indicated by the green line, there is no solution for $\deri{U}{r} = 0$, and thus no critical point for $U$, and it will decrease from $\infin$ to $0$ monotonically, in this case, particles will always repulse from the origin and goes to infinity.
+2. $-\frac{L^2}{Km} = \max( e^{-\a r}(\a r^2 + r))$, as indicated by the orange line, there is single solution for $\deri{U}{r} = 0$, and $\deri{U}{r} < 0$ for all $r > 0$ except when $-\frac{L^2}{Km} = e^{-\a r}(\a r^2 + r)$. That means there is one inflection point for $U$, and except the inflection point, $U$ will decrease from $\infin$ to $0$. In this case, there is a semi-stable equilibrium point where  $-\frac{L^2}{Km} = e^{-\a r}(\a r^2 + r)$ holds, when there is small disturbance, the particle will quickly goes to $r = \infin$.
+3. $-\frac{L^2}{Km} < \max( e^{-\a r}(\a r^2 + r))$, as indicated by the blue line, there are two solutions for $\deri{U}{r}$, which means there are one maximum and minimum point for $U$. In this case $U$ will first decrease from $\infin$ to a minimum point, then increase to a maximum point, and eventually approaches to 0. In this case, there is a energy valley where particle could be trapped in, and make periodic motion in it., there is also an unstable equilibrium (the maximum) where the particle will either quickly go to $r = \infin$ or trapped in the energy valley if there is small disturbance.
+
+##### (c)
+
+That means $\deri{U}{r} = 0$ so that particle could have orbit will fixed radius
+$$
+L = \sqrt{-Kme^{-\a r}(\a a^2 + a)}
+$$
+and the energy is thus
+$$
+E = U_{\text{eff}} = \frac{L^2}{2mr^2} + \frac{Ke^{-\a r}}{r} = \frac{-Kme^{\a a}(\a a^2 + a)}{2ma^2} + \frac{Ke^{-\a a}}{a} \\ = \frac{-Ke^{-\a a}(\a a + 1)}{2a} + \frac{Ke^{-\a a}}{a} = \frac{Ke^{-\a a}}{a}(-\frac{\a a + 1}{2} + 1) = \frac{Ke^{-\a a}}{a}(\frac{-\a a +1}{2}) \\ = \frac{Ke^{-\a a}}{2a}(1 -\a a)
+$$
+
+##### (d)
+
+$$
+L = m\omega a^2 =\sqrt{-Kme^{-\a a}(\a a^2 + a)} \\
+\omega = \sqrt{\frac{-Kme^{-\a a}(\a a^2 + a)}{m^2a^4}} = \sqrt{\frac{-Ke^{-\a a}(\a a + 1)}{ma^3}}
+$$
+
+##### (e)
+
+$$
+\frac{\d^2 U }{\d r^2}  = \frac{3L^2}{mr^4}+Ke^{-\a r}(\frac{2}{r^3} + \frac{2\a}{r^2} + \frac{\a ^2}{r})
+$$
+
+$$
+\omega_{r} = \sqrt{\frac{U''(a)}{m}} = \sqrt{\frac{3L^2}{m^2a^4} + \frac{K}{m}e^{-\a a}(\frac{2}{a^3} + \frac{2\a}{a^2} + \frac{\a ^2}{a})} \\ = \sqrt{\frac{3\cdot -Kme^{-\a a}(\a a^2 + a)}{m^2a^4} + \frac{K}{m}e^{-\a a}(\frac{2}{a^3} + \frac{2\a}{a^2} + \frac{\a ^2}{a})} \\
+=  \sqrt{\frac{K}{m}e^{-\a a} \frac{-3(\a a^2 + a)}{a^4} + \frac{K}{m}e^{-\a a}(\frac{2}{a^3} + \frac{2\a}{a^2} + \frac{\a ^2}{a})} \\
+= \sqrt{\frac{K}{m}e^{-\a a} \left(\frac{-3\a a -1}{a^3} + \frac{2\a}{a^2} + \frac{\a ^2}{a}\right)}
+$$
+
+#### Question 4
+
+$$
+\int_{M}  -{G \d m \over r} = \int_{-{L \over 2}}^{L \over 2} -\lambda \frac{G}{\sqrt{y^2 + x^2}}\d x = -\lambda G \int_{-{L \over 2}}^{L \over 2}\frac{\d x}{\sqrt{x^2 + y^2}} = -\lambda G \cdot \left.\ln(x + \sqrt{x^2 + y^2})\right|_{-\frac{L}{2}}^{\frac{L}{2}} = \\ -\frac{GM}{L}\cdot\ln(\frac{\frac{L}{2} + \sqrt{\frac{L^2}{4} + y^2 }}{-\frac{L}{2} + \sqrt{\frac{L^2}{4} + y^2}}) = \\
+-\frac{GM}{L}\cdot\ln(\frac{
+	\left(\frac{L}{2} + \sqrt{\frac{L^2}{4} + y^2 }\right)^2
+}{y^2 + \frac{L^2}{4} - \frac{L^2}{4}}) = -\frac{2GM}{L}\cdot \ln(\frac{\frac{L}{2} + \sqrt{\frac{L^2}{4}+y^2}}{y})
+$$
+
+When $y \gg L$, $y^2 \gg L^2$
+$$
+\Phi = -\frac{2GM}{L}\cdot \ln(\frac{\frac{L}{2} + \sqrt{\frac{L^2}{4}+y^2}}{y}) \\
+= -\frac{2GM}{L}\cdot \ln(\frac{\frac{L}{2} + \sqrt{y^2}}{y}) \\
+= -\frac{2GM}{L}\cdot \ln(\frac{L}{2y} + 1) \\
+$$
+Since $y \gg L$ and $\frac{L}{2y} \approx 0$, $\ln(\frac{L}{2y} + 1) \approx \frac{L}{2y}$
+$$
+\Phi \approx -\frac{2GM}{L} \cdot \frac{L}{2y} = -\frac{GM}{y}
+$$
+
+#### Question 5
+
+
 
