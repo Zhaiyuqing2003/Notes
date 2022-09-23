@@ -144,12 +144,38 @@ E = T_0 + U_0 = T_f + U_f
 $$
 
 $$
-T_f - T_0 = U_0 - U_f = U(0, 0, 0) - U(-1, 2, 1) = 0 - (-A\cdot 1^2 \cdot (-1) - \frac{1}{4}A\cdot(2)^4) =  
+\begin{align}
+T_f - T_0 &= U_0 - U_f \\
+&= U(0, 0, 0) - U(-1, 2, 1) \\ 
+&= 0 - (-A\cdot 1^2 \cdot (-1) - \frac{1}{4}A\cdot(2)^4) \\
+&= -A +4A \\
+&= 3A
+\end{align}
 $$
 
+$$
+\half mv^2 = \half mv_0^2 + 3A \\
+v^2 = v_0^2 + \frac{6A}{m} \\
+\fbox{$v = \sqrt{v_0^2 + \frac{6A}{m}}$}
+$$
+
+#### Question 3: Nuclear forces and Yukawa potential
 
 
+$$
+f(r) = -\deri{V}{r} = -K(-\a e^{-\a r} r^{-1} + (-1)\cdot r^{-2}e^{-\a r}) = \a K \frac{e^{-\a r}}{r} + K\frac{e^{-\a r}}{r^2}
+$$
 
+$$
+U_{\text{eff}} = \frac{L^2}{2mr^2} + \frac{Ke^{-\a r}}{r}
+$$
 
+We want to find the critical point of the $U_{\text{eff}}$:
+$$
+\deri{U}{r}  = -\frac{L^2}{mr^3} - Ke^{-\a r}(\frac{\a}{r} + \invfrac{r^2})
+$$
 
+$$
+\lim_{r \to 0} U_{\text{eff}}  = \infin \quad \lim_{r \to \infin}U_{\text{eff}} = 0
+$$
 
