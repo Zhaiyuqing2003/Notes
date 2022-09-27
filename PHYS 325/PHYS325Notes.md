@@ -47,6 +47,7 @@ $$
 \def\align[[#1]]{\begin{align}#1\end{align}}
 \def\note#1!{\fbox{$#1$}}
 \def\.#1|;{\left.#1\right|}
+\def\ssqrt/#1/;{\sqrt{#1}}
 $$
 
 ## Classical Mechanics
@@ -138,8 +139,54 @@ that is, one frame doesn't accelerate with respect to other frame.
    \half m(v^2 - v_0^2) = \intlh r(0);r(t); \vfn F(r) \cdot  \d \v r \\
    $$
 
+   Using the definition of $T$ and $U$:
+   $$
+   T - T_0 = U_0 - U \\
+   T = E - U \\
+   \half mv^2 = E-U \\
+   v = \pm\sqrt{\fac 2/m;(E - U)}
+   $$
    
-   
+   $$
+   \deri x/t; = \pm \sqrt{\fac 2/m; (E - U)} \\
+   \note \int \fac \d x/\sqrt{\fac 2/m; (E - U)}; = \int \d t = t - t_0!
+   $$
+
+this may not solve analytically. But we could do some qualitative analysis:
+
+<img src="PHYS325Notes.assets/image-20220927131514505.png" alt="image-20220927131514505" style="zoom: 33%;" />
+
+Since the total energy $E$ is conserved, so if we have energy $E_i$, the $U(x)$ could never reach higher then $E_i$, otherwise the $T$ will be negative. We could see that if we have total energy $E_3$, then **#** is a unstable equilibrium point, while ***** is a stable equilibrium point. 
+
+##### Simple Harmonic Oscillator
+
+Suppose that for the position-dependent force equation: 
+$$
+m\dderi x/t; = F(x)
+$$
+Say, $x = 0$ is an stable equilibrium point. (We could always shift coordinate if we wanted) Then, in the close vicinity of $x_0$, we expand $F(x)$ into Tyler series:
+$$
+m \dderi x/t; = F(x(t)) = F(0) + \.\deri F/t;|;_0 x(t) + \half\.\dderi F/t;|;_0x^2(t) \cdots
+$$
+since we close to $x(t) = 0$, the $x^n(t), n \ge 2$ could be ignored. Since at $x = 0$, it's an equilibrium point and $\dderi x/t; = 0$. Thus, $F(0) = 0$, and we leave with
+$$
+m\dderi x/t; = \.\deri F/t;|;_0 x(t) = -\.\dderi U/t;|;_0 x(t) = -kx(t)
+$$
+We define a variable $\note k = U''(x_0)!$.
+
+and we could see that the potential energy is
+$$
+U(x) = U(0) + \.\deri U/t;|;_0 x(t) + \half \. \dderi U/t;|;_0 x^2(t) + \cdots
+$$
+
+
+##### Energy
+
+Define kinetic energy ($T$) and potential energy ($U$)
+$$
+T = \half mv^2 \\
+U = -\int\sub \infin;\sup r; \vfn F(r) \cdot \d \v r
+$$
 
 ##### Energy Conservation
 
@@ -280,4 +327,53 @@ $$
 
 
 
+##### Orbit
 
+###### Energy
+
+Define kinetic energy per mass $t$
+$$
+t = \fac T/m;
+$$
+Define energy per mass $e$
+$$
+e = t + \Phi = \fac T + U/m;  = \fac E/m;
+$$
+
+
+###### Circular Orbit
+
+Circular orbit satisfy
+$$
+a = \fac v^2/r; = \fac GM/r^2;
+$$
+and thus the speed of the orbit
+$$
+v = \(\fac GM/r;);\sup 1/2;
+$$
+and the period of the orbit
+$$
+P = \fac 2\pi r/v; = 2\pi \(\fac r^3/GM;);\sup 1/2;
+$$
+and the energy of the orbit is
+$$
+e = \fac T + U/m; = \half v^2 - (\fac GM/r;) = \half v^2 - v^2 = -\half v^2
+$$
+the energy of circular orbit is always negative, the potential energy is $-2$ times of kinetic energy.
+
+the angular momentum is
+$$
+L = \v r \times (m \v v) = mrv \hat k
+$$
+and the escape velocity is
+$$
+e = 0 \\
+\half v\tsub escape; ^2 = \fac GM/r; \\
+v\tsub escape; = \ssqrt/\fac 2GM/r;/;
+$$
+
+###### Special case
+
+ 1. $e = 0$, the orbit is a parabola
+
+    
