@@ -46,6 +46,7 @@ $$
 \def\tsup#1;{^{\text{#1}}}
 \def\align[[#1]]{\begin{align}#1\end{align}}
 \def\note#1!{\fbox{$#1$}}
+\def\.#1|;{\left.#1\right|}
 $$
 
 ## Classical Mechanics
@@ -206,10 +207,76 @@ $$
 \oint\sub A; \v g \cdot \hat n \d A = -4\pi GM
 $$
 
+###### Potential of a hollow shell
 
+
+$$
+\oint\sub A; \v g \d A = -4\pi GM\tsub enclosed; \\
+4\pi r^2 g(r) = -4\pi GM\tsub enclosed; \\
+g(r) = -\fac GM\tsub enclosed;/r^2;
+$$
+Inside the shell:
+$$
+g = 0
+$$
+Outside the shell:
+$$
+g = -\fac GM/r^2;
+$$
+Potential inside the shell:
+$$
+\align[[
+\Phi &= -\int\sub R;\sup r; g\tsub inside; \d r -\int\sub \infin;\sup R; g\tsub outside;\d r \\
+&= 0 - \int\sup R;\sub \infin; -\fac GM/r^2;\d r \\ &= - \left.\fac GM/r;\right|_\infin^R \\ &= -\(\fac GM/R; - \fac GM/\infin;); \\ &= -\fac GM/R;
+]]
+$$
+Potential outside the shell:
+$$
+\align[[
+\Phi &= -\int\sup r;\sub \infin; g \tsub outside; \d r \\
+&= \int\sub\infin;\sup r; \fac GM/r^2;\d r \\
+&= -\.\fac GM/r;|;_\infin^r \\
+&= -\(\fac GM/r; - \fac GM/\infin;); \\
+&= -\fac GM/r;
+]]
+$$
+
+###### Potential of sphere
+
+Inside the sphere:
+$$
+g = -\fac GM\tsub enclosed;/r^2; = -\fac G/r^2; \fac r^3 /R^3; M = -\fac GM/R^3; r
+$$
+Inside of the sphere:
+$$
+\align[[
+\Phi &= -\int\sub R;\sup r; g\tsub inside; \d r -\int\sub \infin;\sup R; g\tsub outside;\d r \\
+&= -\int\sub R;\sup r; - \fac GM / R^3; r  - \int\sup R;\sub \infin; -\fac GM/r^2;\d r \\ 
+&= \fac GM / 2R^3;\(r^2 - R^2); - \fac GM/R; \\
+&= -\fac GM / 2R;\(1 - \fac r^2/R^2;); - \fac GM/R;
+]]
+$$
+Outside the sphere:
+$$
+\align[[
+\Phi &= -\int\sup r;\sub \infin; g \tsub outside; \d r \\
+&= \int\sub\infin;\sup r; \fac GM/r^2;\d r \\
+&= -\.\fac GM/r;|;_\infin^r \\
+&= -\(\fac GM/r; - \fac GM/\infin;); \\
+&= -\fac GM/r;
+]]
+$$
 
 ##### Central Force
 
+Central force looks like
+$$
+\v F = f(r, \phi, \theta)\hat r
+$$
+There is a global property called angular momentum $L = \v r \times (m\v v)$ is conserved.
+$$
+\deri L/t; = \deri \v r/t; \times m\v v  + \v r \times m\deri \v v/t; = \v v \times(m\v v) + \v r \times m\v a = 0 + \v r \times \v F = \v r \cross f\hat r = 0
+$$
 
 
 
