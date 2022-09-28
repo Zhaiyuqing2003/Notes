@@ -44,10 +44,14 @@ $$
 \def\intlh#1;#2;{\int_{#1}^{#2}}
 \def\sup#1;{^{#1}}
 \def\tsup#1;{^{\text{#1}}}
-\def\align[[#1]]{\begin{align}#1\end{align}}
+\def\align[[#1]]{\begin{align*}#1\end{align*}}
 \def\note#1!{\fbox{$#1$}}
 \def\.#1|;{\left.#1\right|}
 \def\ssqrt/#1/;{\sqrt{#1}}
+\def\noteeq#1!#2!{\begin{equation} \label{eq:#2} \fbox{$#1$}\end{equation}}
+\def\raf#1;{\ref{#1}}
+\def\eqraf#1;{\eqref{#1}}
+\def\dfac#1/#2;{\dfrac{#1}{#2}}
 $$
 
 ## Classical Mechanics
@@ -88,7 +92,9 @@ $$
 $$
 that is, one frame doesn't accelerate with respect to other frame.
 
-##### No mass change
+##### Force in Different Cases
+
+We assume no mass $m$ change here.
 
 1. No force
    $$
@@ -112,15 +118,15 @@ that is, one frame doesn't accelerate with respect to other frame.
    $$
    \v F(t) = m\v a
    $$
-
+   
    $$
    \v a = \fac \v F/m;
    $$
-
+   
    $$
    \v v = \int \fac \v F / m; \d t = \fac I \sub \v F;(t) / m; +\v C_1
    $$
-
+   
    $$
    \v r =  \int \(\fac I_\v F(t) / m; + \v C_1); \d t = \fac I^2_\v F(t) / m; + \v C_1t + \v C_2
    $$
@@ -144,21 +150,36 @@ that is, one frame doesn't accelerate with respect to other frame.
    T - T_0 = U_0 - U \\
    T = E - U \\
    \half mv^2 = E-U \\
-   v = \pm\sqrt{\fac 2/m;(E - U)}
+   \noteeq v = \ssqrt/2\fac E-U/m ;/; !vEU!
    $$
    
+   and thus, the instantaneous displacement $s$ could be calculated: 
    $$
-   \deri x/t; = \pm \sqrt{\fac 2/m; (E - U)} \\
-   \note \int \fac \d x/\sqrt{\fac 2/m; (E - U)}; = \int \d t = t - t_0!
+   \deri s/t; = \pm \sqrt{\fac 2/m; (E - U)} \\
+   \noteeq \int \fac \d s/\sqrt{\fac 2/m; (E - U)}; = \int \d t = t - t_0!tEU!
    $$
+   
+   this may not solve analytically. But we could do some qualitative analysis, for example in 1D:
+   
+   <img src="PHYS325Notes.assets/image-20220927131514505.png" alt="image-20220927131514505" style="zoom: 33%;" />
+   
+   Since the total energy $E$ is conserved, so if we have energy $E_i$, the $U(x)$ could never reach higher then $E_i$, otherwise the $T$ will be negative. We could see that if we have total energy $E_3$, then **#** is a unstable equilibrium point, while ***** is a stable equilibrium point. 
 
-this may not solve analytically. But we could do some qualitative analysis:
+5. Velocity dependent force
+   $$
+   \vec F = \vfn F(v)
+   $$
+   restrict it to 1D:
+   $$
+   F(v) = m \deri v/t; \\
+   \int \d t = \int \fac m/F(v);\d v
+   $$
+   we might not solve it analytically.
 
-<img src="PHYS325Notes.assets/image-20220927131514505.png" alt="image-20220927131514505" style="zoom: 33%;" />
-
-Since the total energy $E$ is conserved, so if we have energy $E_i$, the $U(x)$ could never reach higher then $E_i$, otherwise the $T$ will be negative. We could see that if we have total energy $E_3$, then **#** is a unstable equilibrium point, while ***** is a stable equilibrium point. 
 
 ##### Simple Harmonic Oscillator
+
+###### From Estimation
 
 Suppose that for the position-dependent force equation: 
 $$
@@ -174,9 +195,45 @@ m\dderi x/t; = \.\deri F/t;|;_0 x(t) = -\.\dderi U/t;|;_0 x(t) = -kx(t)
 $$
 We define a variable $\note k = U''(x_0)!$.
 
+We could thus write the force as
+$$
+\note F = -kx(t)!
+$$
 and we could see that the potential energy is
 $$
 U(x) = U(0) + \.\deri U/t;|;_0 x(t) + \half \. \dderi U/t;|;_0 x^2(t) + \cdots
+$$
+We could take away the arbitrary constant $U(0)$ here, and notice that
+$$
+\.\deri U/t;|;_0 = -F(0) = 0
+$$
+and thus
+$$
+\note U(x) = \half kx^2(t)!
+$$
+just like a spring.
+
+###### Solving SHM
+
+So, now we get the equation that
+$$
+m\dderi x/t; = -kx(t)
+$$
+We could certainly try plug in $e^x$ and find out the solution, but we want to find more rigid way. Using the general equation $\eqraf eq:vEU;$ for any position-dependent force:
+$$
+\deri x/t; = \ssqrt/\fac 2/m; (E-U)/; = \ssqrt /\fac 2/m; (E - \half kx^2) /; = \ssqrt /\fac 2E/m; - \inv m kx^2/;
+$$
+
+and if we define
+$$
+\noteeq \omega = \ssqrt/\fac k/m;/; \qquad A = \ssqrt /\fac 2E/k;/; !A+omega!
+$$
+
+so,
+$$
+\deri x/t; = \omega \ssqrt /A^2 - x^2/; \\
+\int \inv {\sqrt{ A^2 - x^2 }} \d x = \int \omega \d t  + C = \omega t+C \\
+\noteeq x = A\sin(\omega t - C)!wave!
 $$
 
 
@@ -208,7 +265,27 @@ $$
 \note E = T + U = \text{const}!
 $$
 
+##### Linear Drag
 
+###### Simple Linear Drag
+
+The force $F$ is
+$$
+F = -cv = m\deri v/t;
+$$
+
+$$
+\int -\fac c/m; \d t = \int \inv v\d v \\
+\ln(\fac v/v_0;) = -\fac c/m;t \\
+\noteeq v = v_0 e\sup -\fac c/m; t; !drag!
+$$
+
+$$
+x = \int v\d t = -\fac mv_0/c; \.\exp(-\fac c/m; t)|;_{0}^{t} \\
+\noteeq x = \fac mv_0/c; \(1 - \exp (-\fac c/m; t));!dragx!
+$$
+
+###### Linear Drag With Gravity
 
 ##### Rocket Motion
 
