@@ -55,6 +55,7 @@ $$
 \def\twotwo#1;#2;#3;#4;{\(\matrix{#1 & #2\\#3 & #4});}
 \def\expect#1;{\left\langle#1\right\rangle}
 \def\txt#1;{\text{#1}}
+\def\ketbra#1#2{\ket #1 \bra #2}
 $$
 
 #### Question 1
@@ -95,9 +96,9 @@ which has the same result in McMahon 3.3. This indicates the unitary matrix (the
 
 So,
 $$
-P_0 = \ketbra0 \\
-P_1 = \ketbra1 \\
-P_2 = \ketbra2
+P_0 = \ket 0 \bra 0 \\
+P_1 = \ket 1 \bra 1 \\
+P_2 = \ket 2 \bra 2
 $$
 
 $$
