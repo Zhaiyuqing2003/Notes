@@ -227,35 +227,86 @@ as we solved in previous question, when $v = \sgrt \fac GM/r; />$, the $e = -\fa
 >\Phi = -\fac GM/2a; \(\pi - 2\arctan(\fac r/a;));
 >$$
 
-we perform an integral at $r$ distance from the origin
+According to the formula (28) in the Lecture notes 7, the gravitational potential follows the equation: (given that the density is symmetric in $\phi$ and $\theta$)
 $$
-\int_V \fac G\d m/r; = \int_0^r \int_0\sup 2\pi; \int_0^\pi \fac G\rho(r)/r; r^2 \sin \phi \d r\d\phi \d \theta \\=
+\d \Phi = \begin{cases}
+-4\pi G\fac \rho/r;u^2\d u \ \ \txt for ;  r>u\\
+-4\pi G\rho u \d u \ \ \ \ \  \txt for ; r < u
+\end{cases}
 $$
+Thus, the total potential should be
+$$
+\Phi(r) = -4\pi G\(\int_0^r \fac \rho/r; u^2 \d u + \int _r^\infin \rho u\d u); \\
+= -4\pi G\(\int_0^r \fac Mua^2/2\pi r (u^2 + a^2)^2; \d u + \int_r^\infin \fac Ma^2/2\pi(u^2 +a^2)^2;\d u); \\
+= -4\pi G \cdot \fac Ma^2/2\pi;\( \int_0^r \fac u/r(u^2 + a^2)^2;\d u +  \int_r^\infin \fac 1/(u^2+a^2)^2;\d u  );
+$$
+![image-20221006204309565](PHYS325HW4.assets/image-20221006204309565.png)
 
+which is just
+$$
+\Phi = -\fac GM/2a; \(\pi - 2\arctan(\fac r/a;));
+$$
 
 ###### (b)
 
->Find the gravitational field $\v g(r)$ of the star
+>Find the gravitational field $\v g(r)$ of the stars
+
+Since we know the potential, the $\v g(r)$ is simply
+$$
+\v g(r) = -\grad \Phi = -\fac GM/a; \fac a^2/r^2 + a^2; \cdot \inv a \hat r = -\fac GM/r^2 + a^2;\hat r
+$$
 
 ##### Question 4: Orbiting black holes
 
->Two black holes of masses $m_1 =10 M\tsub solar;$ and $M_2 = 5M\tsub solar;$ are in a circular orbit around each other. Their separation is $d = 10000 \txt km;$, They each have a speed relative to the joint center of mass (indicated in the figure by a $*$). 
+>Two black holes of masses $m_1 =10 M\tsub solar;$ and $m_2 = 5M\tsub solar;$ are in a circular orbit around each other. Their separation is $d = 10000 \txt km;$, They each have a speed relative to the joint center of mass (indicated in the figure by a $*$). 
 >
 >Note: a solar mass is $M\tsub solar; = 2\cdot 10\sup 30;\txt kg;$ and Newton's gravitational constant is $G = 6.67\cdot 10^{-11} \txt Nm;^2/\txt kg;^2$
 
+![image-20221006204557570](PHYS325HW4.assets/image-20221006204557570.png)
+
 ###### (a)
 
->What is the ration of the black holes' speed relative to the center of mass
+>What is the ratio of the black holes' speed relative to the center of mass? Which one is moving faster?
 >
 >Hint: consider the total momentum of the system
+
+The total momentum in the system $L = 0$, and since they are in a circular orbit around each other:
+$$
+m_1v_1 = m_2v_2 \\
+\fac v_1/v_2; = \fac m_2/m_1; = \half
+$$
+The $v_2 > v_1$ and that the smaller black hole is moving faster.
 
 ###### (b)
 
 >What is the period $P$ of their orbit in seconds?
 
+The position of the center of the mass is 
+$$
+\v C = \fac m_1\v r_1 + m_2\v r_2/ m_1 + m_2; = \fac 2/3;\v r_1 + \fac 1/3; \v r_2 = \v r_1 + \inv 3(\v r_2 - \v r_1)
+$$
+That is, the distance between center of mass and $m_1$ is $d_1 = \inv 3 d$ and distance between center of mass and $m_2$ is $d_2 = \fac 2/3; d$. 
+
+The orbit is circular, and that means
+$$
+\fac v^2/r; = \fac F/m;
+$$
+Thus
+$$
+v_1 = \sgrt \fac Gm_1m_2d_1/m_1d^2; /> = \sgrt \fac 5/3; \fac GM\tsub solar;/d; /> \approx 4.715 \cdot 10^6 \txt m/s; \\
+v_2 = \sgrt \fac Gm_1m_2d_2/m_2d^2; /> = \sgrt \fac 20/3; \fac GM\tsub solar;/d; /> \approx 9.430 \cdot 10^6 \txt m/s;
+$$
+and thus the period $P$ is
+$$
+P_1 = \fac 2\pi d_1/v_1; = \fac 2\pi/3; \fac d/v_1; \approx 4.442 \txt s; \\
+P_2 = \fac 2\pi d_2/v_2; = \fac 4\pi/3; \fac d/v_2; \approx 4.442 \txt s;
+$$
+
 ###### (c)
 
 >Where is each black hole after $t = \quar P$ later than the time is the figure, Indicate these positions in the figure.
+
+<img src="PHYS325HW4.assets/photo_2022-10-06_20-51-31.jpg" alt="photo_2022-10-06_20-51-31" style="zoom:33%;" />
 
 ##### Question 5: Rocket near a black hole
 
@@ -263,18 +314,46 @@ $$
 >
 >Note: a solar mass is $M\tsub solar; = 2\cdot 10\sup 30;\txt kg;$ and Newton's gravitational constant is $G = 6.67\cdot 10^{-11} \txt Nm;^2/\txt kg;^2$
 
+<img src="PHYS325HW4.assets/image-20221006204608167.png" alt="image-20221006204608167" style="zoom: 67%;" />
+
 ###### (a)
 
 >Determine the spaceship's acceleration in terms of $G$, $M$, and $D$.
+
+$$
+a = \fac F/m; = \fac GMm/D^2m; = \fac GM/D^2;
+$$
+
+The direction is towards the center of the black hole.
 
 ###### (b)
 
 >What is the period $P$ of the spaceship's orbit?
 
+Since it's a circular orbit,
+$$
+\fac v^2/D;  = a \\
+v = \sgrt \fac GM/D; />
+$$
+and
+$$
+P = \fac 2\pi D/v; = 2\pi \sgrt \fac D^3/GM; />
+$$
+
 ###### (c)
 
 >Evaluate the period $P$ numerically for $M = 5M\tsub solar;$ and $D = 5000\txt km;$
 
+$$
+P = 2\pi \sgrt \fac D^3/GM; /> = 2 \cdot 3.1415 \cdot \sgrt \fac (5000 000)^3 /6.67 \cdot 10{\sup -11;} \cdot 5 \cdot 2 \cdot 10^{30} ; /> \approx 2.720 \txt s;
+$$
+
 ###### (d)
 
 >What is the tidal effect on a particle floating in the spaceship? That is, given a particle at a distance $h \ll D$ to the right of the spaceship's center of mass, what is the particle's acceleration relative to the ship's center of mass? Evaluate this numerically for $D = 5000\txt km;$ and $h = 1\txt m;$
+
+According the to the formula (8) of Lecture Notes 10
+$$
+hg' = \fac 2GMh/D^3; \approx 10.672 \txt m/s;^2
+$$
+which is little bigger than a $g$, not very big effect.
