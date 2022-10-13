@@ -1,0 +1,1 @@
+The game have three parts. The first part consists of pursuer and 
