@@ -81,23 +81,23 @@ From the intuition, the minimum potential energy happens when $x = 0$ (the sprin
 $$
 U' = \half k \cdot 2 \(\sgrt L^2 + x^2 /> - \fac L/2; ); \cdot \half (L^2 +x^2)\sup -\half; \cdot 2x = kx\cdot\(1 - \fac L/2\sgrt L^2 +x^2 />;);
 $$
-is equal to zero only when $x = 0$, and that
+is equal to zero only when $\note x = 0!$, and that
 $$
 U'' = k(1 - \fac L / 2\sgrt L^2 + x^2 />;) + kx(-\fac L/2; \cdot -\half (L^2 + x^2)\sup -3/2;) \\
 $$
-with $U''(0) = \half k$ show that the point is indeed the minimum.
+with $U''(0) = \half k > 0$ show that the point is indeed the minimum.
 
 ###### (c)
 
 >Determine the effective spring constant $k\tsub eff; = U'' (x = x\tsub min;)$
 
-From the previous calculation, we know that $k\tsub eff; = U''(0) = \half k$
+From the previous calculation, we know that $\note k\tsub eff; = U''(0) = \half k!$
 
 ###### (d)
 
 >Determine the system's oscillation frequency
 
-The oscillation frequency $w = \sgrt \fac k\tsub eff; / m ; /> = \sgrt \fac k /2m;  />$
+The oscillation frequency $\note w = \sgrt \fac k\tsub eff; / m ; /> = \sgrt \fac k /2m; />!$
 
 ##### Question 2 Simple Pendulum
 
@@ -210,13 +210,97 @@ $$
 
 >Derive the differential equation describing the bob's motion $\theta(t)$ for an arbitrary amplitude $\theta\tsub max;$ (but such that the bob remains submerged in the oil).
 
+Doing some forces analysis:
+$$
+I\ddot\theta = -mgL\sin \theta - cL(L\dot\theta)
+$$
+that is
+$$
+\note mL^2\ddot\theta + cL^2\dot\theta + mgL\sin\theta = 0!
+$$
+
 ###### (b)
 
 >Linearize the differential equation that you obtained in $(a)$ and check it for obvious errors: is the damping positive? Its the effective stiffness (or "effective spring constant") positive? What is the damped frequency of the vibration?
 >
 >Assume that the system is underdamped.
 
+Assume that $\theta$ is small, so $\sin \theta \approx \theta$. So, the equation is
+$$
+mL^2\ddot\theta + cL^2\dot \theta + mgL\theta = 0
+$$
+which is equivalent to solving 
+$$
+\noteeq \ddot\theta + \fac c/m;\dot\theta + \fac g/L;\theta =0!equation!
+$$
+The $M\tsub eff; = 1$, $C\tsub eff; =\fac c/m;$, $K\tsub eff; = \fac g/L;$. and thus
+$$
+\omega_n = \sgrt \fac K\tsub eff;/ {M\tsub eff;}; /> = \sgrt \fac g/L; />
+$$
+and thus the damping zeta $\zeta$ is
+$$
+\zeta = \fac C\tsub eff; /{2M\tsub eff;} \omega_n; = \fac c/2m;\sgrt \fac L/g; />
+$$
+by assumption, $c > 0$. and obviously $L > 0$ and $m > 0$. Thus, the $\zeta > 0$.
+
+The effective spring constant is just $K\tsub eff; = g/L > 0$, (or $mgL$ for original equation) is obviously greater than zero.
+
+By assumption of that system is underdamped, the damped frequency $\omega_d$ is
+$$
+\omega_d = \omega_n \sgrt 1 - \zeta^2 /> = \sgrt \fac g/L;(1 - \fac c^2/4m^2; \cdot \fac L/g;) /> = \sgrt \fac g/L;  - \fac c^2/4m^2; />
+$$
+
 ###### (c)
 
 >Setting the initial conditions $\theta(t = 0) = \theta_0$ and $\dot \theta(t = 0) = \Omega$, find the trajectory $\theta(t)$
 
+By the Lecture note 13, Equation (43), the solution has the form of
+$$
+\theta(t) = \exp(-\zeta \omega_n t)(A\cos(\omega_d t) + B\sin(\omega_dt))
+$$
+It's derivative is
+$$
+\dot\theta(t) = -\zeta\omega_n\exp(-\zeta\omega_nt)(A\cos(\omega_dt) + B\sin(w_dt)) + \exp(-\zeta\omega_nt)(-A\omega_d\sin(\omega_dt) + B\omega_d\cos(\omega_d t))
+$$
+By the initial conditions
+$$
+\theta(0) = 1(A\cdot 1 + B\cdot 0) = \theta_0\\
+\dot\theta(0) = -A\zeta\omega_n + B\omega_d = \Omega
+$$
+and thus
+$$
+\note \align[[A &= \theta_0 \quad  B = \fac \Omega + \theta_0\zeta\omega_n/\omega_d; ]]!
+$$
+and the solution is thus
+$$
+\noteeq \theta(t) = \exp(-\zeta \omega_n t)(\theta_0\cos(\omega_d t) -\fac \Omega/\zeta\omega_n\omega_d; \sin(\omega_dt))!thetaresult!
+$$
+where the $\omega_n$, $\omega_d$, and $\zeta$ is calculated in $(b)$
+
+##### Question 5
+
+> Computer Algebra programs like mathematica are useful tools to do lengthy computations. Here you will practice working with mathematica using the problem in Question 4, In particular,
+
+###### (a)
+
+>Verify that your solution in $(4c)$ does indeed solve the differential equation of $(4b)$ by inserting your solution
+
+We define some constants first
+
+<img src="./assets/image-20221014225207410.png" alt="image-20221014225207410" style="zoom:25%;" />
+
+and write the $\theta(t)$ function, put it back into $\eqref{eq:equation}$
+
+![image-20221014225328108](./assets/image-20221014225328108.png)
+
+we get $0$ as expected, which shows that our solution is correct.
+
+###### (b)
+
+> Plot the motion $\theta(t)$ in the interval $t = 0\txt s;,...,10\txt s;$. Set the parameters $\theta_0 = 0.1$, $L = 1m$, $m = 0.5\txt kg;$, $c = 1\txt kg/s;$, $g = 9.81\txt m/s;^2$,$\Omega = 20\txt Hz;$
+>
+> Hint: it is useful to introduce the dimensionless time parameter $\bar t = t/s$, and plot $\theta(\bar t)$
+
+<img src="./assets/image-20221014225613520.png" alt="image-20221014225613520" style="zoom: 33%;" />
+
+Giving value to the constants, and plot the $\theta(\bar t)$. As we could see, this is indeed a damped oscillation.
