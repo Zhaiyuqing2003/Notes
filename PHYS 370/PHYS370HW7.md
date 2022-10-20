@@ -65,17 +65,14 @@ $$
 \def\kket#1#2;{\ket #1 \ket #2}
 \def\bbra#1#2;{\bra #1 \bra #2}
 \def\[[#1]]{\{#1\}}
+\def\sq{\sigma_1}
+\def\sw{\sigma_2}
+\def\se{\sigma_3}
 $$
 
 ##### Question 1
 
 >In the Example 3.17 we showed that $[\sigma_1, \sigma_2] = 2i\sigma_3$. Following the same procedure, show that $[\sigma_2, \sigma_3] = 2i\sigma_1$ and $[\sigma_3, \sigma_1] = 2i\sigma_2$
-
-$$
-\def\sq{\sigma_1}
-\def\sw{\sigma_2}
-\def\se{\sigma_3}
-$$
 
 $$
 [\sw, \se] = \PY\PZ - \PZ\PY = \twotwo 0;i;i;0; - \twotwo 0;-i;-i;0; = 2i\sq \\
