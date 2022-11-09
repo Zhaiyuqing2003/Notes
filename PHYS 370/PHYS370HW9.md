@@ -67,6 +67,7 @@ $$
 \def\[[#1]]{\{#1\}}
 \def\sgrt#1/>{\sqrt{#1}}
 \def\Pr#1;{\txt Pr;_{#1}}
+\def\braket #1;#2;{\langle #1|#2\rangle}
 $$
 
 ##### Question 1
