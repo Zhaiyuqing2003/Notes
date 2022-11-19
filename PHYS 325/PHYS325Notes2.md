@@ -229,10 +229,15 @@ The impulse force $F(t) = \delta(t)$ apply at $t = 0$ could be consider an homog
 
 
 
+$$
+\half x^3 \fac 2x / x^2 - 4; \\
+= \half x^3 (\inv {x+2} + \inv {x-2})
+$$
 
-
-
-
+$$
+\inv{x + 2} + \inv {x - 2}\\
+= \fac x - 2/(x + 2)(x - 2); + \fac x+2/(x + 2)(x - 2);
+$$
 
 
 
