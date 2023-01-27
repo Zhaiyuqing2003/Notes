@@ -134,4 +134,40 @@ The expression make sense. As $z \to \infin$ ($z \gg R$), the formula could be a
 
 ###### (ii)
 
->Does this make sense? Compare the asymptotic z-dependence as $z \to \infin$ of the $x$-component to the dependence of the $z$-component. Explain why this difference occurs coherently in words. This is also a writing assignment. Summarize the reason in a few sentences.
+>Does this make sense? Compare the asymptotic z-dependence as $z \to \infin$ of the $x$-component to the dependence of the $z$-component. Explain why this difference occurs coherently in words. This is also a writing assignment. Summarize the reason in a few sentences
+
+#### Problem 2
+
+##### (a)
+
+The $V(\vec r)$ does not depend on the coordinate $y$. As we could see in the picture, translating of the wires in $y$ direction (or changing our coordinate system in $y$ direction) does not change the setup at all. With the same setup, it's expected to have same $V(\vec r)$. Therefore, $V(\vec r)$ does not depend on the coordinate $y$.
+
+##### (b)
+
+Imagine a cylinder surrounding the wire as shown above. The radius of the cylinder is $r$. By symmetry, the magnitude of electric field on the surface of the cylinder should be the same. Applying gauss law, suppose we only select length $h$ of the cylinder, then
+$$
+\Phi = 2\pi r h E = \fac q/\varepsilon_0; = \fac \lambda h/\varepsilon_0; \\
+E = \fac \lambda/2\pi \varepsilon_0 \cdot r ;
+$$
+At reference point (origin), the $r = a$.
+$$
+V(\vec r) = -\int_a^r \fac \lambda/2\pi\varepsilon_0\cdot s; \d s  = -\fac \lambda/2\pi\varepsilon_0;\ln s\vline^r_a = \fac \lambda/2\pi\varepsilon_0;\ln\fac a/r;
+$$
+where $r = \sqrt{(x - a)^2 + z^2}$.
+
+##### (c)
+
+The same analysis could be done on the $x = -a$ wire too, and its potential will be
+$$
+V_-(\vec r) = -\fac \lambda/2\pi\varepsilon_0;\ln\fac a/\sqrt{(x +a)^2 + z^2};
+$$
+and the potential from the $x = +a$ is
+$$
+V_+(\vec r) = \fac \lambda/2\pi\varepsilon_0;\ln\fac a/\sqrt{(x - a)^2 + z^2};
+$$
+because of the principle of superposition
+$$
+V(\vec r) = V_+(\vec r) + V_-(\vec r) = \lambda 
+$$
+
+
