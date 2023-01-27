@@ -167,7 +167,7 @@ V_+(\vec r) = \fac \lambda/2\pi\varepsilon_0;\ln\fac a/\sqrt{(x - a)^2 + z^2};
 $$
 because of the principle of superposition
 $$
-V(\vec r) = V_+(\vec r) + V_-(\vec r) = \lambda 
+V(\vec r) = V_+(\vec r) + V_-(\vec r) = \fac \lambda/2\pi\varepsilon_0;\ln\fac \sqrt{(x +a)^2 + z^2}/\sqrt{(x-a)^2 + z^2};
 $$
 
 
