@@ -17,4 +17,4 @@ plt.plot([0, 6], [3, 1])
 plt.show()
 ```
 
-zzs
+![image-20230124123625532](./Discussion2.assets/image-20230124123625532.png)
