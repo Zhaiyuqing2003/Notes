@@ -22,10 +22,7 @@
 
 ###### (f)
 
-**True**. This for loop increment the second half part by the corresponding element in first half part (see graph). Each iteration doesn't depend on others.
-$$
-\GRAPH
-$$
+**True**. This for loop increment the second half part by the corresponding element in first half part. Each iteration doesn't depend on others.
 
 #### Problem 2
 
@@ -47,6 +44,8 @@ for (int i = 0; i < N; i ++) {
 printf("the minimum value if %lf\n", minval);
 ```
 
+This technically "parallels" the program. But the program is still bottlenecked by the critical section. 
+
 #### Problem 3
 
 ```plaintext
@@ -60,9 +59,17 @@ sum is 494825.930000
 sum with critical takes 0.181362 seconds
 ```
 
-**(1)** 
+##### (1)
 
+the `omp_get_num_procs()` is actually twice of the `number_of_cores` (we could see this in the code) so it is `8`. 
 
+##### (2)
+
+See above
+
+##### (3)
+
+The reduction one. (Other two methods just make the sum could only be accessed by one thread at one time, so actually only one thread is "working" at the same time. However, the reduction method actually makes multiple thread calculating the sum of a chunk of array at the same time, and sum the together in the end, so it's faster).
 
 #### Problem 4
 
