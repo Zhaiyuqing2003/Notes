@@ -44,7 +44,29 @@ for (int i = 0; i < N; i ++) {
 printf("the minimum value if %lf\n", minval);
 ```
 
-This technically "parallels" the program. But the program is still bottlenecked by the critical section. 
+This technically "parallels" the program. But the program is still bottlenecked by the critical section. One better solution is to use reduction:
+
+```cpp
+double tmp, minab;
+double minval = INFINITY;
+
+#pragma omp parallel for
+for (int i = 0; i < N; i ++) {
+    tmp = a[i];
+    a[i] = b[i];
+    b[i] = tmp;
+}
+
+#pragma omp parallel for reduction(min:minval)
+for (int i = 0; i < N; i ++) {
+    minab = (a[i] > b[i]) ? (b[i]) : (a[i]) ;
+    minval = (minval > minab) ? (minab) : (minval);
+}
+
+printf("the minimum value if %lf\n", minval);
+```
+
+This, as I tested on the array of size `100000`, is about 100 times faster than the parallel code that use critical sections. (but it seems for this size, unparalleled code is still better) You could see the `q2.c` in my `hw2` gitlab repo is you want to (I include some correctness testing / time measurement code).
 
 #### Problem 3
 
@@ -69,7 +91,7 @@ See above
 
 ##### (3)
 
-The reduction one. (Other two methods just make the sum could only be accessed by one thread at one time, so actually only one thread is "working" at the same time. However, the reduction method actually makes multiple thread calculating the sum of a chunk of array at the same time, and sum the together in the end, so it's faster).
+The reduction one. (Other two methods just make the sum could only be accessed by one thread at one time, so actually only one thread is "working" at the same time. However, the reduction method actually makes multiple thread calculating the sum of one part of  the array at the same time, and the main thread sum of the partial sums from each thread in the end, so it's faster).
 
 #### Problem 4
 
