@@ -126,3 +126,14 @@ The reduction one. (Other two methods just make the sum could only be accessed b
 | Thread 1 | 1    | 1    | 5    | 8    | 8    |      |      |      |      |      |      |      |
 | Thread 2 | 2    | 2    | 6    | 9    | 11   | 11   |      |      |      |      |      |      |
 | Thread 3 | 3    | 3    | 7    | 7    |      |      |      |      |      |      |      |      |
+
+
+
+
+
+|                  | **+**        | **-**          | **Total** |
+| ---------------- | ------------ | -------------- | --------- |
+| **Infected**     | 1/150 * 0.98 |                | 1/150     |
+| **Not Infected** | ?            | 149/150 * 0.92 | 149/150   |
+| **Total**        | ?            |                | 1         |
+
