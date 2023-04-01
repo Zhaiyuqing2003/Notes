@@ -146,30 +146,163 @@ $$
 
 This is also same as $(a)$
 
-We see that on the six side of the cube, the normal vector is:\
+We see that on the six side of the cube, the normal vector is:
 $$
-\hat n\tsub left; = -\hat x \qquad \hat n\tsub right; = \hat x \\
-\hat n\tsub front; = -\hat y \qquad \hat n\tsub back; = \hat y \\
+\hat n\tsub side; = \hat s \\
 \hat n\tsub top; = \hat z \qquad \hat n\tsub bottom; = -\hat z
 $$
 and therefore
 $$
 \align[[
-\vec K\sub B, \text {left}; &= M_0 \hat z \cross (-\hat x) = -M_0 \hat y \\
-\vec K\sub B, \text {right}; &= M_0 \hat z \cross \hat x = M_0 \hat y \\
-\vec K\sub B, \text {front}; &= M_0 \hat z \cross (-\hat y) = M_0 \hat x \\
-\vec K\sub B, \text {back}; &= M_0 \hat z \cross \hat y = -M_0 \hat x \\
+\vec K\sub B, \text {side}; &= M_0 \hat z \cross \hat s = M_0 \hat \phi \\
 \vec K\sub B, \text {top}; &= M_0 \hat z \cross \hat z = 0 \\
-\vec K\sub B, \text {left}; &= M_0 \hat z \cross (-\hat z) = 0 \\
+\vec K\sub B, \text {bottom}; &= M_0 \hat z \cross (-\hat z) = 0 \\
 ]]
 $$
-and we see that in this case, on the left side of the cube, we have
+we see that on the side of the cube, the distance to the z-axis is
 $$
-\vec K\sub B, \text {left}; = \sigma\tsub left; \vec v = \sigma\tsub left; r \omega \hat \phi
+s\tsub left;(\phi) = -a\sec \phi \\
+s\tsub right;(\phi) = a\sec \phi \\
+s\tsub front;(\phi) = -a\csc \phi \\
+s\tsub back;(\phi) = a\csc\phi
+$$
+and we see that in this case, on the side of the cube, we have
+$$
+\vec K\sub B, \text {left}; = \sigma\tsub left; \vec v = \sigma\tsub left; s\tsub left;(\phi) \omega \hat \phi \\
 $$
 
+and thus we have
+$$
+\sigma\tsub left;(\phi) = \fac M_0/ s{\tsub left;}(\phi) \omega; =  -\fac M_0/a\sec(\phi) \omega; \\
+$$
+and similarly that
+$$
+\sigma\tsub right;(\phi) = \fac M_0/ s{\tsub right;}(\phi) \omega; =  \fac M_0/a\sec(\phi) \omega; \\
+$$
 
+$$
+\sigma\tsub front;(\phi) = \fac M_0/ s{\tsub front;}(\phi) \omega; =  -\fac M_0/a\csc(\phi) \omega; \\
+$$
 
+$$
+\sigma\tsub back;(\phi) = \fac M_0/ s{\tsub back;}(\phi) \omega; =  \fac M_0/a\csc(\phi) \omega; \\
+$$
 
+the intuition here is that the part where it's farer from the z-axis (it rotate faster), the charge density is smaller.
 
+and we see that the on the top and bottom side of the cube, the
+$$
+\sigma\tsub tb; s\tsub tb;(\phi) \omega = 0 
+$$
+and therefore $\sigma\tsub tb; = 0$
 
+#### Problem 2
+
+##### (a)
+
+We know that in the case where paramagnet is placed in an external potential field, there is no free current.
+
+We know that
+$$
+\vec H\tsub out; = \fac \vec B\tsub out;/\mu_0; = \fac B_0/\mu_0;(\cos\theta \hat x + \sin\theta \hat z)
+$$
+Therefore, we know that $\vec H^\parallel\tsub out; = \vec H^\parallel\tsub in ; = \fac B_0/\mu_0; \cos\theta \hat x $
+
+We know that at boundary, the $\vec B^\perp\tsub in; =\vec B^\perp\tsub out; =B_0 \sin\theta \hat z $.
+
+Since we know that inside the paramagnet the $\vec B\tsub in; = \mu_0(1 + \chi_m)\vec H\tsub in;$. That means
+$$
+\vec B^\parallel\tsub in; = \mu_0(1 + \chi_m) \vec H^\parallel\tsub in; = \mu_0(1 + \chi_m)\fac B_0/\mu_0; \cos\theta \hat x  = B_0(1 + \chi_m)\cos\theta \hat x
+$$
+and therefore
+$$
+\vec B\tsub in; = B_0((1 + \chi_m) \cos\theta \hat x + \sin\theta\hat z)
+$$
+
+##### (b)
+
+We use the formula that
+$$
+\vec B\tsub in; = \mu_0(1 + \chi_m )\vec H\tsub in;
+$$
+and therefore
+$$
+\vec H = \fac B_0/\mu_0; (\cos\theta\hat x + \fac \sin\theta/1 + \chi_m; \hat z)
+$$
+
+##### (c)
+
+We know that in this case the $\vec H$ in the slab is
+$$
+\vec H = \fac B_0\hat z/\mu_0(1 + \chi_m);
+$$
+Using the method mentioned in Lecture 28. We define a $\vec H = -\vec \nabla \phi_m(\vec r)$, and we could therefore solve the equation
+$$
+\phi_m(\vec r) = \sum_{i = 0}^{l} (A_lr^l + \fac B_l/r^{l+1};)P_l(\cos \theta)
+$$
+So, in the outside of the sphere, we see as $r \to \infin$, the
+$$
+\phi_m(\vec r) = \fac B_0/\mu_0(1 + \chi_m); z
+$$
+therefore, to satisfy the boundary condition, only $l = 1$ term remains.
+
+we have 
+$$
+\phi_{m, \text {out}}(\vec r) = \alpha\tsub out; r \cos \theta  + \fac \beta\tsub out;/r^2;\cos \theta
+$$
+and the following must be true 
+$$
+\alpha\tsub out; r\cos\theta = \fac B_0/\mu_0(1 + \chi_m); z
+$$
+we see that $r\cos\theta = z$ and therefore
+$$
+\alpha\tsub out; = \fac B_0/\mu_0(1 + \chi_m);
+$$
+Inside the sphere we find that 
+$$
+\phi_{m, \text {in}}(\vec r) = \alpha\tsub in; r \cos \theta  + \fac \beta\tsub in;/r^2;\cos \theta
+$$
+and since $\phi_{m, \text{in}} (\vec r)$ should be a finite value as $r \to 0$, we see $\beta\tsub in; = 0$
+
+From the lecture 28 notes, we see that
+$$
+\vec B\tsub out; \cdot \hat n = \vec B\tsub in; \cdot \hat n = 
+$$
+and
+$$
+\mu_0 (1 + \chi_m) \vec H\tsub out; \cdot \hat n = \mu_0 \vec H\tsub in; \cdot \hat n
+$$
+then
+$$
+(1+ \chi_m)\pderi \phi_{m, \text {out}}(\vec r)/r; = \pderi \phi_{m, \text {in}}(\vec r);/r; \\
+(1+ \chi_m)\pderi /r; \(\alpha\tsub out; r  + \fac \beta\tsub out;/r^2;); = \pderi /r; (\alpha\tsub in; r)  \\
+(1+ \chi_m)(\alpha\tsub out;  - \fac 2 \beta\tsub out;/r^3;) =  \alpha\tsub in;  \\
+$$
+evaluated at $r = R$
+$$
+(1+ \chi_m)(\alpha\tsub out;  - \fac 2 \beta\tsub out;/R^3;) =  \alpha\tsub in;
+$$
+and then
+$$
+\fac B_0/\mu_0(1 + \chi_m); - \fac 2 \beta\tsub out;/R^3; = \fac \alpha\tsub in;/ 1+ \chi_m;
+$$
+ the other boundary condition is that $\vec H_{\text{in}, \parallel} = \vec H_{\text{out}, \parallel}$. We see that
+$$
+-\fac 1/R; \pderi /\theta; \phi_{m, \text{in}}(\vec r) = -\fac 1/R; \pderi /\theta; \phi_{m, \text{out}}(\vec r)
+$$
+this giving us
+$$
+-\fac 1/R; \pderi /\theta; \(\alpha\tsub out; r  + \fac \beta\tsub out;/r^2;);\cos\theta = -\fac 1/R; \pderi /\theta; \alpha\tsub in; r\cos\theta
+$$
+therefore
+$$
+\alpha\tsub out; r  + \fac \beta\tsub out;/r^2; = \alpha\tsub in; r
+$$
+and therefore
+$$
+\alpha\tsub out;  + \fac \beta\tsub out;/r^3; = \alpha\tsub in; 
+$$
+and
+$$
+
+$$
