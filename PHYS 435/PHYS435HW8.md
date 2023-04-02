@@ -300,9 +300,23 @@ $$
 $$
 and therefore
 $$
-\alpha\tsub out;  + \fac \beta\tsub out;/r^3; = \alpha\tsub in; 
+\alpha\tsub out;  + \fac \beta\tsub out;/r^3; = \alpha\tsub in;
 $$
-and
+and thus at $r = R$
+$$
+\fac B_0/\mu_0(1 + \chi_m); + \fac \beta\tsub out;/R^3; = \alpha\tsub in;
+$$
+and therefore
+$$
+\fac 3B_0/\mu_0(3 + 2\chi_m); = \alpha\tsub in;
+$$
+and therefore
+$$
+\beta\tsub out; = \fac B_0/\mu_0(1 + \chi_m); - \fac 3B_0/\mu_0(3 + 2\chi_m); \\
+=\fac -B_0x/\mu_0(1+x)(3+2x) ;
 $$
 
 $$
+
+$$
+
