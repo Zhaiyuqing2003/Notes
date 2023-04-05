@@ -234,7 +234,7 @@ $$
 
 We know that in this case the $\vec H$ in the slab is
 $$
-\vec H = \fac B_0\hat z/\mu_0(1 + \chi_m);
+\vec H\tsub out; = \fac B_0\hat z/\mu_0(1 + \chi_m);
 $$
 Using the method mentioned in Lecture 28. We define a $\vec H = -\vec \nabla \phi_m(\vec r)$, and we could therefore solve the equation
 $$
@@ -242,7 +242,7 @@ $$
 $$
 So, in the outside of the sphere, we see as $r \to \infin$, the
 $$
-\phi_m(\vec r) = \fac B_0/\mu_0(1 + \chi_m); z
+\phi_m(\vec r) = -\fac B_0/\mu_0(1 + \chi_m); z
 $$
 therefore, to satisfy the boundary condition, only $l = 1$ term remains.
 
@@ -250,13 +250,13 @@ we have
 $$
 \phi_{m, \text {out}}(\vec r) = \alpha\tsub out; r \cos \theta  + \fac \beta\tsub out;/r^2;\cos \theta
 $$
-and the following must be true 
+and the following must be true
 $$
-\alpha\tsub out; r\cos\theta = \fac B_0/\mu_0(1 + \chi_m); z
+\alpha\tsub out; r\cos\theta = -\fac B_0/\mu_0(1 + \chi_m); z
 $$
 we see that $r\cos\theta = z$ and therefore
 $$
-\alpha\tsub out; = \fac B_0/\mu_0(1 + \chi_m);
+\alpha\tsub out; = -\fac B_0/\mu_0(1 + \chi_m);
 $$
 Inside the sphere we find that 
 $$
@@ -266,7 +266,7 @@ and since $\phi_{m, \text{in}} (\vec r)$ should be a finite value as $r \to 0$, 
 
 From the lecture 28 notes, we see that
 $$
-\vec B\tsub out; \cdot \hat n = \vec B\tsub in; \cdot \hat n = 
+\vec B\tsub out; \cdot \hat n = \vec B\tsub in; \cdot \hat n
 $$
 and
 $$
@@ -284,7 +284,7 @@ $$
 $$
 and then
 $$
-\fac B_0/\mu_0(1 + \chi_m); - \fac 2 \beta\tsub out;/R^3; = \fac \alpha\tsub in;/ 1+ \chi_m;
+-\fac B_0/\mu_0(1 + \chi_m); - \fac 2 \beta\tsub out;/R^3; = \fac \alpha\tsub in;/ 1+ \chi_m;
 $$
  the other boundary condition is that $\vec H_{\text{in}, \parallel} = \vec H_{\text{out}, \parallel}$. We see that
 $$
@@ -304,19 +304,26 @@ $$
 $$
 and thus at $r = R$
 $$
-\fac B_0/\mu_0(1 + \chi_m); + \fac \beta\tsub out;/R^3; = \alpha\tsub in;
+-\fac B_0/\mu_0(1 + \chi_m); + \fac \beta\tsub out;/R^3; = \alpha\tsub in;
 $$
 and therefore
 $$
-\fac 3B_0/\mu_0(3 + 2\chi_m); = \alpha\tsub in;
+-\fac 3B_0/\mu_0(3 + 2\chi_m); = \alpha\tsub in;
 $$
 and therefore
 $$
-\beta\tsub out; = \fac B_0/\mu_0(1 + \chi_m); - \fac 3B_0/\mu_0(3 + 2\chi_m); \\
-=\fac -B_0x/\mu_0(1+x)(3+2x) ;
+\phi_{m, \text{in}} = \alpha\tsub in; r \cos\theta = -\fac 3B_0/\mu_0(3 + 2\chi_m); z
 $$
 
 $$
+\vec H\tsub in; = -\vec \nabla \phi_{m, \text{in}} = \hat z \fac B_0/\mu_0 (1 + {\fac 2/3; \chi_m});
+$$
 
 $$
+\vec B\tsub in; = \mu_0 \vec H\tsub in; = \hat z \fac B_0/(1 + {\fac 2/3; \chi_m});
+$$
+
+##### (d)
+
+When $\chi_m \to 0$, the $\vec B\tsub in; = B_0 \hat z$. If $\chi_m \to \infin$, $\vec B\tsub in; = 0$. The $\chi_m$ is the magnetic susceptibility of the slab. If it's large, that means the paramagnet slab will generate a huge $M$ for the external $B$. (it's easy to get magnetized)
 
