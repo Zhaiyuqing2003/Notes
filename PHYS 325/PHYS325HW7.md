@@ -66,8 +66,6 @@ $$
 \def\sumninfinz{\sum\sub n = 0;\sup\infin;}
 $$
 
-
-
 ##### Question 1 Bumpy Road
 
 >Consider a unicycle fitted with a damped, shock-absorbing spring with spring constant $k$ and damping coefficient $c$. When a rider of mass $m = 80 \txt kg;$ sits on the unicycle. the spring compresses and the seat sags by $0.02\m$. Recall $g = 9.81\m/\stwo$
@@ -270,7 +268,6 @@ where $\omega$ and $\phi$ could be arbitrary constant, and thus
 $$
 \iv T;\int\tsub period; x_p(t)\d t  = \fac cT/T; = \fac a_0/2k;
 $$
-
 
 
 
