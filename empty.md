@@ -1,1 +1,7 @@
-I am not in the four credit section, I submit this simply to make the assignment webpage looks nicer.
+A[0] = D[0] + 1.0
+
+A[1] = D[1] + 1.0
+
+A[2] = D[2] + 1.0
+
+A[3] = D[3] + 2.0
