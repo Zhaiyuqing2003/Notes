@@ -268,3 +268,11 @@ for $\omega$, we could use this $L$ and $C$ to have the same impedance as a sing
 
 
 
+$$
+\text{fi}
+$$
+
+$$
+fi
+$$
+
