@@ -238,6 +238,8 @@ The independent voltage sources and independent current sources seen in graph ar
 
 <img src="./Homework 1.assets/image-20230827144909702.png" alt="image-20230827144909702" style="zoom:33%;" />
 
+>TL;DR. They voltage source will likely get burnt in real life.
+
 Each non-ideal voltage source could be represent roughly by an ideal voltage source and a internal resistance (the $R_1$ and $R_2$, it's usually small) in series. Applying KCL on node $a$, we see that
 $$
 I_1 + I_2 = I_R
@@ -281,7 +283,9 @@ The power (heat) dissipation on the internal resistor in each voltage source wil
 
 <img src="./Homework 1.assets/image-20230827153640382.png" alt="image-20230827153640382" style="zoom:33%;" />
 
-Now we see the what happened in $b)$, each non-ideal current source could be considered as an ideal current source and an internal resistance (the $R_1$ and $R_2$, it's usually large) in parallel. First applying KCL on both node $a$ and $b$, we see that
+>TL;DR. It is also likely going to get burnt.
+
+Now we see the what happened in $b)$, each non-ideal current source could be considered as an ideal current source and an internal resistance (the $R_1$ and $R_2$, it's usually large) in parallel. (Take this approximation with grain of salt, it might not *exactly* reflect the real situation) First applying KCL on both node $a$ and $b$, we see that
 $$
 I_{R_2} = I_C - I_2 \\
 I_{R_1} = -(I_C + I_1)
@@ -302,10 +306,88 @@ I_{R_2}R_2 + R_x I_{R_x} - I_{R_1} R_1 = 0\V\\
 (3I_{R_x} - 2\A)\cdot N\ohm + I_{R_x} \cdot 2\ohm + (3I_{R_x} + 1\A)M\ohm =0\V
 $$
 
+Solving the equation
+
+$$
+I_{R_x} = \fac 2N - M/3N + 3M +2; \A \\
+$$
+and therefore
+$$
+I_C = 3I_{R_x} = \fac 6N - 3M/3N + 3M + 2; \A
+$$
+and 
+$$
+I_{R_2} = I_C - I_2 = \fac 6N - 3M/3N + 3M + 2;- 2 = -\fac 9M + 4/3N + 3M +2; \\
+I_{R_1} = -(I_C - I_1) = -\(\fac 6N - 3M/3N + 3M + 2; + 1); = -\fac 9N + 2/3N + 3M + 2;
+$$
+this is hard to analysis. Typically, in real life, the internal resistance is rather big (like few kilo or mega ohms), and if we assume $N = \alpha M$. We could see (given $M$ is large enough)
+$$
+I_{R_2} = -\fac 9M + 4/3\alpha M + 3M +2; \approx \fac 9/3\alpha + 3; = \fac 3/\alpha + 1; \A \\
+I_{R_1} = -\fac 9\alpha M + 2/3\alpha M + 3M + 2; \approx \fac 9\alpha / 3\alpha +3; = \fac 3\alpha /\alpha + 1;\A
+$$
+and we have
+$$
+P_{R_2} = (I_{R_2})^2 \cdot R_2 = \(\fac 3/\alpha +1;);^2 \cdot \alpha M \W
+$$
+
+$$
+P_{R_1} = (I_{R_1})^2 \cdot R_1 = \(\fac 3\alpha/\alpha + 1;);^2\cdot M\W
+$$
+
+Then, if we *assume* $\alpha$ is small relative to $M$ (that is $a \ll M$), and $M$ is large enough. That means the resulting $P_{R_2}$ and $P_{R_1}$ will likely be big. (Take $\alpha = 1$ and $M = 1000$ as example, this will produce a few $\txt k; \W$ power, which is not small). This high power (the heat dissipation in this case) will burn the circuit.
+
+#### Problem 8
+
+Let $A = \sqrt 3 - j \cdot 2\sqrt 3$ and Let $B = -3 - j \cdot \sqrt 3$.
+
+##### (a)
+
+<img src="./Homework 1.assets/image-20230828144118771.png" alt="image-20230828144118771" style="zoom:50%;" />
+
+we see the magnitude is $r = \sqrt { (\sqrt 3) ^2 + (2\sqrt 3)^2} = 4$ and the angle/phase is $\arctan(-\fac 2\sqrt 3/\sqrt 3;) = \arctan(-2)$ (it's in fourth quadrant). Therefore
+$$
+A = 4e^{i \arctan(-2)}
+$$
+
+##### (b)
+
+<img src="./Homework 1.assets/image-20230828143849398.png" alt="image-20230828143849398" style="zoom:50%;" />
+
+we see that the magnitude is $r = \sqrt {(-3)^2 + (-\sqrt 3)^2} = 2\sqrt 3$ and the angle/phase is $\arctan(\fac -\sqrt 3/- 3;) + \pi = \fac 7/6; \pi $ 
+$$
+B = 2\sqrt 3 e^{i \fac 7/6; \pi}
+$$
 
 
+##### (c)
 
+$$
+A + B = (\sqrt 3 - 3) - j\cdot (3\sqrt 3) \\
+A - B = (\sqrt 3 + 3) - j\cdot \sqrt 3 
+$$
 
+$$
+|A+B| = \sqrt { (\sqrt 3 - 3)^2 + (-3\sqrt 3)^2} = \sqrt {9 + 3 - 6\sqrt 3 + 27} = \sqrt {39 - 6\sqrt 3}
+$$
+
+$$
+|A - B| = \sqrt { (\sqrt 3 + 3)^2 + (-\sqrt 3)^2} = \sqrt {9 + 3 + 6\sqrt 3 + 3} = \sqrt {15 + 6\sqrt 3}
+$$
+
+##### (d)
+
+$$
+AB = -(\sqrt 3 - j\cdot 2 \sqrt 3)(3 + j \cdot \sqrt 3) \\
+= -(3\sqrt 3 + j\cdot 3 - j \cdot 6\sqrt 3 + 6) \\
+= -(3\sqrt 3 + 6) + j\cdot (6\sqrt 3 - 3)
+$$
+
+$$
+A/B = \fac AB^*/BB^*; = \fac AB^*/|B|^2; \\
+= \fac (\sqrt 3 - j\cdot 2\sqrt 3)(-3 + j\sqrt 3)/12; \\
+= \iv 12; (-3\sqrt 3  + j \cdot 3 + j \cdot 6 \sqrt 3 + 6) \\
+= \iv 4; (2-\sqrt 3) + \iv 4; j\cdot (2 \sqrt 3 + 1)
+$$
 
 
 
