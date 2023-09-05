@@ -84,7 +84,7 @@ Sign: Yuqing Zhai
 
 >Consider the circuit below, where $R_1 = 5\ohm$, $R_3 = 3\ohm$, $V_{R_2} = \fac 2/3; \V$ and $V_{R_3} = 1\V$. Let the top-right node be the reference node. Determine the resistance $R_2$ and the voltage $V_x$ in the following circuit, as well all the remaining node voltages. 
 >
-><img src="./Homework 1.assets/image-20230826111716892.png" alt="image-20230826111716892" style="zoom:50%;" />
+><img src="./Homework 1.assets/image-20230829221622963.png" alt="image-20230829221622963" style="zoom:50%;" />
 
 Since all components are in series, it's obvious that $I_1 = I_2 = I_3$. Using Ohm's Law on $R_3$, we see that
 $$
@@ -102,6 +102,23 @@ I_1 R_1 + V_{R_2} + V_{R_3} + V_X = 0 \\
 \fac 1/3;A \cdot 5\ohm + \fac 2/3;\V + 1\V + V_X = 0 \\
 \note V_X = -\fac 10/3;\V !
 $$
+
+Since we are taking $V_4$ as reference point, that means $V_4 = 0\V$, and therefore (node method)
+$$
+I_2 R_2 = V_{R_2} = V_4 - V_1 \\
+\note V_1 = V_4 - V_{R_2} = -\fac 2/3;\V !
+$$
+Similarly
+$$
+I_1R_1 = V_1 - V_2 \\
+\note V_2 = V_1 -I_1 R_1 = -\fac 2/3;\V - \fac 5/3;\V = -\fac 7/3;\V!
+$$
+and
+$$
+I_3R_3 = V_{R_3} =  V_3 - V_2 \\
+\note V_3 = V_2 - V_{R_3} = -\fac 7/3;\V - 1\V = -\fac 10/3;\V !
+$$
+
 
 #### Problem 3
 
@@ -137,7 +154,7 @@ $\note R \text{ and } I_s \  \text {absorbs}!$ power (indicated by $P_R > 0\W$ a
 
 >Consider the circuit below, where $I_s = 5\A$, $R = 2\ohm$ and $K = 2\A/\V$. Determine the voltage $V_x$ and calculate the absorbed power at each circuit element. Clearly indicate if the power is absorbed or injected.
 >
-><img src="./Homework 1.assets/image-20230826211934844.png" alt="image-20230826211934844" style="zoom:50%;" />
+><img src="./Homework 1.assets/image-20230829221853856.png" alt="image-20230829221853856" style="zoom:50%;" />
 
 Applying KCL on node a, we see that
 $$
@@ -175,6 +192,8 @@ $\note R \text{ and } I_K \  \text {absorbs}!$ power (indicated by $P_R > 0\W$ a
 
 #### Problem 5
 
+>Consider the circuit below, where $V_s = 3\V$, $R_1 = 1\ohm$, $R_2 = 2\ohm$, and $K = 2$. Determine the current $I$ and the voltage $V_x$.
+>
 ><img src="./Homework 1.assets/image-20230826212937512.png" alt="image-20230826212937512" style="zoom:50%;" />
 
 Since all components are in series, they have same current $I$ passing through them indicated in the graph. Using KVL indicated in the graph, we have
@@ -199,6 +218,8 @@ $$
 
 #### Problem 6
 
+>Consider the circuit below, where $R_1 = 6\ohm$, $R_2 = 6\ohm$, $R_3 = 2\ohm$, $V_2 = 18 \V$, and $I_s = 5\A$. Determine the current $I_1$ and the voltage $V_1$.
+>
 ><img src="./Homework 1.assets/image-20230827121958669.png" alt="image-20230827121958669" style="zoom:50%;" />
 
 Applying Ohm's Law on $R_2$, we see that
@@ -218,7 +239,11 @@ $$
 
 #### Problem 7
 
-><img src="./Homework 1.assets/image-20230827133452459.png" alt="image-20230827133452459" style="zoom: 33%;" /><img src="./Homework 1.assets/image-20230827135400625.png" alt="image-20230827135400625" style="zoom: 33%;" />
+>Some of the following circuits violate $\txt KVL/KCL;$ and / or basic definitions of two-terminal elements given in Section 1.3. For each one of the circuits, determine if it is correct or ill-specified. If it is ill-specified, explain the problem and indicate what will happen if the incorrect circuit has been built up in your life?
+>
+><img src="./Homework 1.assets/image-20230827133452459.png" alt="image-20230827133452459" style="zoom: 25%;" /><img src="./Homework 1.assets/image-20230829222018630.png" alt="image-20230829222018630" style="zoom:25%;" /><img src="./Homework 1.assets/image-20230829223243186.png" alt="image-20230829223243186" style="zoom:25%;" />
+>
+>
 
 $a)$ and $b)$ is ill-formed because:
 
@@ -377,16 +402,20 @@ $$
 ##### (d)
 
 $$
-AB = -(\sqrt 3 - j\cdot 2 \sqrt 3)(3 + j \cdot \sqrt 3) \\
-= -(3\sqrt 3 + j\cdot 3 - j \cdot 6\sqrt 3 + 6) \\
-= -(3\sqrt 3 + 6) + j\cdot (6\sqrt 3 - 3)
+\align [[
+AB &= -(\sqrt 3 - j\cdot 2 \sqrt 3)(3 + j \cdot \sqrt 3) \\
+&= -(3\sqrt 3 + j\cdot 3 - j \cdot 6\sqrt 3 + 6) \\
+&= -(3\sqrt 3 + 6) + j\cdot (6\sqrt 3 - 3)
+]]
 $$
 
 $$
-A/B = \fac AB^*/BB^*; = \fac AB^*/|B|^2; \\
-= \fac (\sqrt 3 - j\cdot 2\sqrt 3)(-3 + j\sqrt 3)/12; \\
-= \iv 12; (-3\sqrt 3  + j \cdot 3 + j \cdot 6 \sqrt 3 + 6) \\
-= \iv 4; (2-\sqrt 3) + \iv 4; j\cdot (2 \sqrt 3 + 1)
+\align [[
+A/B &= \fac AB^*/BB^*; = \fac AB^*/|B|^2; \\
+&= \fac (\sqrt 3 - j\cdot 2\sqrt 3)(-3 + j\sqrt 3)/12; \\
+&= \iv 12; (-3\sqrt 3  + j \cdot 3 + j \cdot 6 \sqrt 3 + 6) \\
+&= \iv 4; (2-\sqrt 3) + \iv 4; j\cdot (2 \sqrt 3 + 1)
+]]
 $$
 
 
