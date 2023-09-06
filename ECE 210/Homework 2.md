@@ -302,13 +302,84 @@ $$
 $$
 therefore
 $$
-V_1= V_{s_1} \\
-V_2 = \fac 3/8; V_{s_1} + \fac 5/16; V_{s_2} \\
-V_3 = \fac 3/8; V_{s_1} + \fac 21/16; V_{s_2} \\
-V_4 = -V_{s_2}
+\note 
+\align [[
+V_1 &= V_{s_1} \\
+V_2 &= \fac 3/8; V_{s_1} + \fac 5/16; V_{s_2} \\
+V_3 &= \fac 3/8; V_{s_1} + \fac 21/16; V_{s_2} \\
+V_4 &= -V_{s_2}
+]]!
 $$
 
 ##### (c)
 
+<img src="./Homework 2.assets/image-20230906133755692.png" alt="image-20230906133755692" style="zoom:33%;" />
 
+First remove $V_{s_2}$. Using node-voltage method, we see that
+
+On the $V_1$, we find
+$$
+V_1 = V_{s_1}
+$$
+and on the $V_2$ (using KCL), we find
+$$
+\fac V_1 - V_2/5\ohm; = \fac V_2 - V_3/2\ohm; + I_x
+$$
+and on the $V_3$, we find that
+$$
+V_3 = 3\fac \V/\A; I_x
+$$
+and on the $V_4$, we find that
+$$
+V_4 = 0\V
+$$
+and we also know that
+$$
+\fac V_2-V_4/3\ohm; = \fac V_2 - 0\V / 3\ohm; = I_x
+$$
+therefore
+$$
+V_1= V_{s_1} \\
+V_2 = \fac 3/8; V_{s_1} \\
+V_3 = \fac 3/8; V_{s_1} \\
+V_4 = 0\V
+$$
+we find $\note k_1 = \fac 3/8;!$
+
+Similarly, remove $V_{s_1}$. Using node-method again, 
+
+<img src="./Homework 2.assets/image-20230906143104768.png" alt="image-20230906143104768" style="zoom:33%;" />
+
+we find that 
+
+On the $V_1$, we find
+$$
+V_1 = 0
+$$
+and on the $V_2$ (using KCL), we find
+$$
+\fac V_1 - V_2/5\ohm; = \fac V_2 - V_3/2\ohm; + I_x
+$$
+and on the $V_3$, we find that
+$$
+V_3 = 3I_x
+$$
+and on the $V_4$, we find that
+$$
+V_4 = -V_{s_2}
+$$
+and we also know that
+$$
+\fac V_2-V_4/3\ohm; = I_x
+$$
+therefore
+$$
+\align [[
+V_1 &= 0\V \\
+V_2 &= \fac 5/16; V_{s_2} \\
+V_3 &= \fac 21/16; V_{s_2} \\
+V_4 &= -V_{s_2}
+]]
+$$
+we see that $k_2 = \fac 21/16; $. 
 
