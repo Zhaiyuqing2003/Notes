@@ -262,17 +262,53 @@ $$
 
 On the left loop, we find (using KVL)
 $$
-I_1 \cdot 5\ohm + (I_1 - I_2) \cdot 2\ohm + 3\fac \V/A; I_x = V_s
+I_1 \cdot 5\ohm + (I_1 - I_2) \cdot 2\ohm + 3\fac \V/A; I_x = V_{s_1}
 $$
 On the right loop, we find
 $$
+I_2 \cdot 3\ohm + (I_2 - I_1) \cdot 2 \ohm = V_{s_2} + 3\fac \V/A; I_x
+$$
+we also know
+$$
 I_2 = I_x
+$$
+and therefore we find that
+$$
+I_1 = \iv 6; \ohm \cdot V_{s_1} + \iv 12; \ohm \cdot V_{s_2} \\
+I_2 = \iv 6; \ohm \cdot V_{s_1} + \fac 7/12; \ohm \cdot V_{s_2}
+$$
+
+##### (b)
+
+On the $V_1$, we find
+$$
+V_1 = V_{s_1}
+$$
+and on the $V_2$ (using KCL), we find
+$$
+\fac V_1 - V_2/5\ohm; = \fac V_2 - V_3/2\ohm; + I_x
+$$
+and on the $V_3$, we find that
+$$
+V_3 = 3I_x
+$$
+and on the $V_4$, we find that
+$$
+V_4 = -V_{s_2}
+$$
+and we also know that
+$$
+\fac V_2-V_4/3\ohm; = I_x
 $$
 therefore
 $$
-7I_1 + I_x = V_s
+V_1= V_{s_1} \\
+V_2 = \fac 3/8; V_{s_1} + \fac 5/16; V_{s_2} \\
+V_3 = \fac 3/8; V_{s_1} + \fac 21/16; V_{s_2} \\
+V_4 = -V_{s_2}
 $$
 
+##### (c)
 
 
 
