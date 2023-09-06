@@ -25,7 +25,7 @@ The resistor circled is in parallel with a wire, so it get short-circuited, and 
 
 Apply the rule of **resistor in series**, the equivalent resistor for that part is
 $$
-R\tsub eqiv; = 1\ohm + \half \ohm = \fac 3/2; \ohm
+R\tsub eqiv; = 1\ohm + \half \ohm = \fac 3/2; \ohm
 $$
 So we simplify the circuit:
 
@@ -132,9 +132,9 @@ and we get
 $$
 \note 
 \align[[
-I_1 = \fac 3/13;V_s - \fac 1/13;  I_s \\
-I_2 = \fac 1/13;V_s - \fac 5/26;  I_s \\
-I_3 = \fac 1/13;V_s + \fac 21/26; I_s 
+I_1 = \fac 3/13 \ohm;V_s - \fac 1/13;  I_s \\
+I_2 = \fac 1/13 \ohm;V_s - \fac 5/26;  I_s \\
+I_3 = \fac 1/13 \ohm;V_s + \fac 21/26; I_s 
 ]]!
 $$
 
@@ -142,15 +142,15 @@ $$
 
 >Use the node-voltage method to obtain a set of three
 
-we see that on the node labelled $V_2$, it has (using KCL)
+we see that on the node labeled $V_2$, it has (using KCL)
 $$
 \fac V_1 - V_2/3\ohm; = \fac V_2 - 0/2\ohm; + \fac V_2 - V_3/3\ohm; \\
 $$
-we see that on the node labelled $V_3$,  it has (using KCL)
+we see that on the node labeled $V_3$,  it has (using KCL)
 $$
 \fac V_2 - V_3/3\ohm; + I_s = \fac V_3 - 0/1\ohm;
 $$
-We see that on the node labelled $V_1$, we get
+We see that on the node labeled $V_1$, we get
 $$
 V_1 - 0 = V_s
 $$
@@ -165,16 +165,114 @@ $$
 \note 
 \align[[
 V_1 &= V_s \\
-V_2 &= \fac 4/13; V_s + \fac 3/13;I_s \\
-V_3 &= \iv 13; V_s + \fac 21/26;I_s
+V_2 &= \fac 4/13; V_s + \fac 3/13;\ohm \cdot I_s \\
+V_3 &= \iv 13; V_s + \fac 21/26;\ohm \cdot I_s
 ]]!
 $$
 
 ##### (c)
 
->
+>It is known that $V_3 = k_1V_s + k_2 I_s.$ Use superposition to determine the values of $k_1$ and $k_2$.
+
+First remove the $I_s$.
 
 <img src="./Homework 2.assets/image-20230903160700365.png" alt="image-20230903160700365" style="zoom:25%;" />
+
+Use node voltage method, we see that on the node labeled $V_2$, it has (using KCL)
+$$
+\fac V_1 - V_2/3\ohm; = \fac V_2 - 0/2\ohm; + \fac V_2 - V_3/3\ohm; \\
+$$
+and one the node labeled $V_3$,
+$$
+\fac V_2 - V_3/3\ohm; = \fac V_3 - 0/1\ohm;
+$$
+and  we see that on the node labeled $V_1$, we get
+$$
+V_1 - 0 = V_s
+$$
+So
+$$
+2(V_1 - V_2) =  3V_2 + 2(V_2 - V_3) \\
+(V_2 - V_3) = 3V_3 \\
+V_1 = V_s
+$$
+We get $\note V_3 = \iv 13; V_s !$ which matches our value in $(b)$.
+
+Then, remove the $V_s$:
+
+<img src="./Homework 2.assets/image-20230905111846770.png" alt="image-20230905111846770" style="zoom:25%;" />
+
+Use node-method, it basically follow the same procedure:
+
+we see that on the node labeled $V_2$, it has (using KCL)
+$$
+\fac V_1 - V_2/3\ohm; = \fac V_2 - 0/2\ohm; + \fac V_2 - V_3/3\ohm; \\
+$$
+we see that on the node labeled $V_3$,  it has (using KCL)
+$$
+\fac V_2 - V_3/3\ohm; + I_s = \fac V_3 - 0/1\ohm;
+$$
+We see that on the node labeled $V_1$, we get
+$$
+V_1 = 0
+$$
+and therefore, simply the equation
+$$
+- 2V_2 =  3V_2 + 2(V_2 - V_3) \\
+(V_2 - V_3) + 3\ohm \cdot I_s = 3V_3 \\
+V_1 = 0
+$$
+and therefore we see that $\note V_3 = \fac 21/26; I_s !$, which matches our value in $(b)$.
+
+We therefore see that $\note k_1 = \iv 13;!$ and $\note k_2 = \fac 21/26;!$
+
+##### (d)
+
+Set $V_s = 10\V$, and $I_s = 1\A$. Therefore,
+$$
+\note 
+\align[[
+I_1 = \fac 3/13 \ohm;10\V - \fac 1/13;  1\A = \fac 30/13;\A - \fac 1/13;\A = \fac 29/13;\A \\
+I_2 = \fac 1/13 \ohm;10\V - \fac 5/26;  1\A = \fac 10/13;\A - \fac 5/26;\A = \fac 15/26;\A\\
+I_3 = \fac 1/13 \ohm;10\V + \fac 21/26; 1\A = \fac 10/13;\A + \fac 21/26;\A = \fac 41/26;\A 
+]]!
+$$
+
+##### (e)
+
+Set $V_s = 10\V$, and $I_s = 1\A$. Therefore,
+$$
+\note 
+\align[[
+V_1 &= V_s = 10\V \\
+V_2 &= \fac 4/13; 10\V + \fac 3/13;\ohm \cdot 1\A = \fac 40/13; \V + \fac 3/13;\V = \fac 43/13;\V \\
+V_3 &= \fac 1/13; 10\V + \fac 21/26;\ohm \cdot 1\A = \fac 10/13;\V + \fac 21/26;\V = \fac 41/26;\V \\
+]]!
+$$
+
+#### Problem 5
+
+>Consider the circuit below:
+>
+><img src="./Homework 2.assets/image-20230905122456784.png" alt="image-20230905122456784" style="zoom:25%;" />
+
+##### (a)
+
+>Use the loop-current method to obtain a set of linearly independent equations, in terms of the loop currents $I_1$ and $I_2$, and the sources $V_{s_1}$ and $V_{s_2}$, but no other variables, that can be used to determine the loop currents. Simplify your equations and write them with integer-valued coefficients.
+
+On the left loop, we find (using KVL)
+$$
+I_1 \cdot 5\ohm + (I_1 - I_2) \cdot 2\ohm + 3\fac \V/A; I_x = V_s
+$$
+On the right loop, we find
+$$
+I_2 = I_x
+$$
+therefore
+$$
+7I_1 + I_x = V_s
+$$
+
 
 
 
