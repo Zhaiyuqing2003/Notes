@@ -104,7 +104,7 @@ $$
 
 >Consider the circuit below
 >
-><img src="./Homework 2.assets/image-20230903154619496.png" alt="image-20230903154619496" style="zoom:25%;" />
+><img src="./Homework 2.assets/image-20230906221436881.png" alt="image-20230906221436881" style="zoom:25%;" />
 
 ##### (a)
 
