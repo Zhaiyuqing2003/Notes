@@ -274,8 +274,8 @@ I_2 = I_x
 $$
 and therefore we find that
 $$
-I_1 = \iv 6; \ohm \cdot V_{s_1} + \iv 12; \ohm \cdot V_{s_2} \\
-I_2 = \iv 6; \ohm \cdot V_{s_1} + \fac 7/12; \ohm \cdot V_{s_2}
+I_1 = \iv 8 \ohm; \cdot V_{s_1} - \iv 16 \ohm; \cdot V_{s_2} \\
+I_2 = \iv 8 \ohm; \cdot V_{s_1} + \fac 7/16 \ohm; \cdot V_{s_2}
 $$
 
 ##### (b)
@@ -381,5 +381,27 @@ V_3 &= \fac 21/16; V_{s_2} \\
 V_4 &= -V_{s_2}
 ]]
 $$
-we see that $k_2 = \fac 21/16; $. 
+we see that $\note k_2 = \fac 21/16; !$. 
+
+#### (d)
+
+Set $V_{s_1} = 10\V$ and $V_{s_2} = 4\V$. 
+$$
+I_1 = \iv 8 \ohm; \cdot 10\V - \iv 16 \ohm; \cdot 4\V = 1\A \\
+I_2 = \iv 8 \ohm; \cdot 10\V + \fac 7/16 \ohm; \cdot 4\V = 3\A
+$$
+
+#### (e)
+
+Set $V_{s_1} = 10\V$ and $V_{s_2} = 4\V$. 
+$$
+\note 
+\align [[
+V_1 &= 10\V \\
+V_2 &= \fac 3/8;\cdot 10\V + \fac 5/16; 4\V = 5\V \\
+V_3 &= \fac 3/8;\cdot 10\V + \fac 21/16;4\V = 9\V\\
+V_4 &= -4\V
+]]!
+$$
+
 
