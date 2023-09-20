@@ -157,7 +157,8 @@ It's obvious that their $\tau = 3\s$
 From $(c)$, we see that
 $$
 i_L(t) = (i_L(0^-) - \half v_s) e^{-t/3} + \half v_s \\
-i_L(t) = \half v_s (1 - e^{-t/3}) + i_L(0^-)e^{-t/3}
+i_L(t) = \half v_s (1 - e^{-t/3}) + i_L(0^-)e^{-t/3} \\
+\note i_L(t) = (6(1 - e^{-t/3}) + 4e^{-t/3}) \A !
 $$
 and we could see that
 
@@ -301,11 +302,12 @@ $$
 From $(c)$, we see that
 $$
 v_C(t) = (v_C(0^-) - 12i_s) e^{-t/20} + 12i_s \\
-v_C(t) = 12i_s(1 - e^{-t/20}) + v_C(0^-)e^{-t/20}
+v_C(t) = 12i_s(1 - e^{-t/20}) + v_C(0^-)e^{-t/20} \\
+\note v_C(t) = (120(1-e^{-t/20}) + 40e^{-t/20})\V !
 $$
 and we could see that
 
-* Let $v_C(0^-) = 0$, the **zero-state response** is $\note i_{L, \txt ZS;}(t) = 12i_s(1 - e^{-t/20}) !$
+* Let $v_C(0^-) = 0$, the **zero-state response** is $\note v_{C, \txt ZS;}(t) = 12i_s(1 - e^{-t/20})  = 120(1- e^{-t/20})\V !$
 * Let $i_s = 0$, the **zero-input response** is $\note i_{L, \txt ZI;} = v_C(0^-)e^{-t/20} = 40e^{-t/20} \V!$
 
 ##### (e)
