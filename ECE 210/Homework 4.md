@@ -110,7 +110,7 @@ $$
 $$
 and therefore $\note i_L(0^-) = 4\A!$
 
-##### (b)y
+##### (b)
 
 See after $(c)$
 
@@ -308,7 +308,7 @@ $$
 and we could see that
 
 * Let $v_C(0^-) = 0$, the **zero-state response** is $\note v_{C, \txt ZS;}(t) = 12i_s(1 - e^{-t/20})  = 120(1- e^{-t/20})\V !$
-* Let $i_s = 0$, the **zero-input response** is $\note i_{L, \txt ZI;} = v_C(0^-)e^{-t/20} = 40e^{-t/20} \V!$
+* Let $i_s = 0$, the **zero-input response** is $\note v_{C, \txt ZI;} = v_C(0^-)e^{-t/20} = 40e^{-t/20} \V!$
 
 ##### (e)
 
