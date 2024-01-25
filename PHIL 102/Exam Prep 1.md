@@ -52,3 +52,4 @@ Therefore everyone should get the shot, other they will die. In this case the co
 
 (C) Pacifism is objectively pro-fascist
 
+0

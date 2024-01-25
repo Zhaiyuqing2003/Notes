@@ -13,3 +13,12 @@
 
 1700 us
 
+$$
+\text{softmax}\!\!\; \(\!\!\:\fac Q\!\!\;K^\text{T}/\sqrt {d_k};\!\!\:);V
+$$
+
+
+$$
+e^{-2\pi j n \frac {N - k}{N}} = e^{-2\pi j n \frac {- k}{N}} \cdot e^{-2\pi j n} =  e^{-2\pi j n \frac {- k}{N}}
+$$
+

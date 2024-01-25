@@ -1,0 +1,1 @@
+![image-20231010165057455](./Homework 7.assets/image-20231010165057455.png)
