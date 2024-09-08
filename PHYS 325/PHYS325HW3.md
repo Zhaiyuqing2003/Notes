@@ -378,3 +378,4 @@ thus, the maximum possible speed is
 $$
 \fbox{$v_{0, \text{max}} = \sqrt\frac{2Gm}{r_0} $}
 $$
+

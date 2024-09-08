@@ -217,6 +217,8 @@ $$
 Let $a = n_1 \cos\theta\tsub inc;$. Let $b = \sqrt {n_2^2 - n_1^2 \sin^2 \theta\tsub inc;}$, we see that $b = n_2 \cos \theta \tsub tran;$. 
 
 Therefore
+
+
 $$
 R + T = \(\fac a - b / a + b;);^2 + \fac 4ab/(a + b)^2; = 1
 $$

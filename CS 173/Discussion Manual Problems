@@ -1,0 +1,226 @@
+# Discussion Manual Problems
+
+## 13 Trees
+
+### 13.1 Recursion trees
+
+>Use recursion trees to find closed forms for the following. Ensure that the input is always an integer by assuming, as needed, that $n$ has a special form (e.g. a power of 2).
+
+#### (a)
+
+$$
+\begin{align}
+T(1) &= 47 \newline 
+T(n) &= 3T(n/3) + 13n \text{  for  }n\geq 2
+\end{align}
+$$
+
+The tree has form 
+$$
+3^kT(n/3^k) + 13kn
+$$
+Let $n/3^k = 1$, then $k = \log_3n$. 
+
+So, the tree has closed form
+$$
+3^{\log_3n}T(n/3^{\log_3n}) + 13\log_3n \cdot n = 47n + 13n\cdot \log_3{n}
+$$
+which is $O(n\log n)$
+
+#### (b)
+
+$$
+\begin{align}
+T(1) &= 1 \newline 
+T(n) &= 2T(n - 1) + 3 \text{  for  }n\geq 2
+\end{align}
+$$
+
+The tree has form
+$$
+2^kT(n-k) + 3\sum_{i = 0}^{k - 1}2^i = 2^kT(n-k) + 3\cdot(2^{k} - 1)
+$$
+Let $n - k = 1$, then $k = n - 1$
+
+So, the tree has the closed form
+$$
+2^{n-1}T(1)+3\cdot(2^{n-1}-1) = 2^{n+1} - 1
+$$
+which is $O(2^n)$
+
+## 14 Big-O
+
+### Big-O Tutorial Questions
+
+#### Exponential vs Factorial
+
+##### (a)
+
+>Prove that $2^n$ is $O(n!)$ (Apply the definition of big-O; do not just appeal to our hierarchy, though you may adapt the related proof from the textbook if you need help.
+
+Let $c = 1$ and $k = 4$. For all $n \geq 4$, $2^n \leq n!$
+
+Prove by induction on $n$.
+
+Base: For $n = 4$, the $2^4 = 16$ and $4! = 24$, so $2^n \leq n!$ for $n = 4$.
+
+Induction: 
+
+Inductive hypothesis: If the claim holds for integer $n = k$, where $k \geq 4$ and $k \in \Z$, then claim also holds for integer $n = k + 1$. 
+$$
+\frac{2^{k+1}}{(k+1)!}= \frac{2^k}{k!}\frac{2}{k+1}
+$$
+
+According to inductive hypothesis, $2^k \leq k!$. So, $\frac{2^k}{k!} \leq 1$.
+
+Since $k \geq 4$, so ${2 \over k+1} \leq 1$. 
+
+So
+$$
+\frac{2^{k+1}}{(k+1)!}= \frac{2^k}{k!}\frac{2}{k+1} \leq 1
+$$
+So $2^{k+1}\leq (k+1)!$
+
+So, the claim also holds for $n = k+1$
+
+So, the $2^n$ is $O(n!)$
+
+Q. E. D.
+
+##### (b)
+
+>Prove or disprove following: If $f(n)$ is $O(2^n)$  and $g(n)$ is $O(n!)$, then $f(n)$ is $O(g(n))$ 
+
+Disprove by counter example.
+
+Suppose $f(n) = n$, $g(n) = 1$.
+
+
+
+Then $c = 1, k = 1$. The $f(n) = n \leq 2^n$ for all $n > k = 1$. 
+
+Base: For $n = 1$, $n = 1 \leq 2^n = 2$. Claim holds.
+
+Induction: hypothesis: If claim holds for $n = k$ where $k \in \Z^{+}$, claim also holds for $n = k+1$. 
+$$
+\frac{k+1}{2^{k+1}} = \frac{k}{2^k}\frac{k}{2(k+1)}
+$$
+According to inductive hypothesis, $k \leq 2^k$ so $\frac{k}{2^k} \leq 1$. Also, since $k \geq 0$, $\frac{k}{2(k+1)} \leq 1$.
+
+So, 
+$$
+\frac{k+1}{2^{k+1}} = \frac{k}{2^k}\frac{k}{2(k+1)} \leq 1
+$$
+Thus, $k + 1 \leq 2^{k+1}$.
+
+$f(n)$ is indeed $O(2^n)$
+
+
+
+Since $n! \geq 1 = g(n)$ for all $n \in \Z^+$, so $g(n)$ is indeed $O(n!)$.
+
+
+
+However, for all $n \in \Z^+$, $f(n) = n \geq 1 = g(n)$, which means there exist no such $k$ that make $g(n) \geq f(n)$. So, $f(n)$ is not $O(g(n))$.
+
+#### Transitivity of big-O
+
+>Prove that if $f(n)$ is $O(g(n))$ and $g(n)$ is $O(h(n))$, then $f(n)$ is $O(h(n))$ (Apply the definition of big-O; do not appeal to general arguments about which functions must grow faster than which others)
+
+Since $f(n)$ is $O(g(n))$, that means there exists such positive real numbers $c_f$ and $k_f$ that
+$$
+f(n) \leq c_fg(n)
+$$
+for $n \geq k_f$.
+
+Also, Since $g(n)$ is $O(h(n))$, that means there exists such positive real numbers $c_g$ and $k_g$ that
+$$
+g(n) \leq c_gh(n)
+$$
+for $n \geq k_g$.
+
+So, let $k_h = \max(k_f, k_g)$
+
+So, for $n \geq k_h$, both $f(n) \leq c_fg(n)$ and $g(n) \leq c_gh(n)$ holds.
+
+So, $f(n) \leq c_fg(n) \leq c_fc_gh(n)$.
+
+So, there exists $c_h = c_f \cdot c_g$ and $k_h = \max(k_f, k_g)$, which are both positive reals that could be inferred from analysis above, such that
+$$
+f(n) \leq c_hh(x)
+$$
+for $n \geq k_h$.
+
+So, $f(n)$ is $O(h(n))$, and **transitivity of big-O** is thus proved. 
+
+### 14.1  Induction with Inequalities
+
+#### (a)
+
+>Prove that $n^2 > 7n + 1$ for all integers $n\geq8$
+
+Prove by induction on $n$
+
+Base: for $n=8$, $n^2 = 64$ and $7n+1 = 57$. Thus $n^2 > 7n+1$ and thus claim holds for $n = 8$.
+
+Induction:
+
+Inductive hypothesis: If the claim holds for integer $n = k$ where $k \in \Z$ and $k \geq 8$. Then claim also holds for $n = k + 1$.
+$$
+(k +1)^2 - 7(k+1) - 1= k^2 + 2k + 1 -7k - 7 - 1 = (k^2 - 7k -1) + (2k - 6)
+$$
+According to inductive hypothesis, $k^2 > 7k + 1$, so $k^2 - 7k - 1 > 0$
+
+Since $k \geq 8$, $2k - 6 \geq 0$.
+$$
+(k^2 - 7k - 1) + (2k - 6) > 0
+$$
+So, $(k +1)^2 - 7(k+1) - 1 > 0$ and $(k + 1)^2 > 7(k+1) + 1$
+
+and the claim thus holds for $n = k + 1$
+
+Q. E. D.
+
+#### (c)
+
+>Prove that $\displaystyle\sum_{i=2}^{n}{1\over{i^2}} \leq {3\over4}-{1\over n}$ for all integers $n \geq 2$
+
+Prove by induction on $n$.
+
+Base: for $n = 2$, The left side is ${1\over4}$, and the right side is $\frac{3}{4} - \frac{1}{2} = {1\over4}$, so the $\sum_{i=2}^{n}{1\over{i^2}} \leq {3\over4}-{1\over n}$ for $n = 2$.
+
+Induction:
+
+Inductive hypothesis: If the claim holds for integer $n = k$, where $k \in \Z$ and $k \geq 2$, then claim also holds for $n = k + 1$.
+$$
+\sum_{i=2}^{k+1}{1\over{i^2}} -{3\over4}+ {1\over k+1} = \sum_{i=2}^{k}{1\over{i^2}} -({3\over4} - {1\over k}) + ({1\over k+1} - {1\over k} + {1\over (k+1)^2})
+$$
+According to inductive hypothesis, $\sum_{i=2}^{k}{1\over{i^2}} \leq {3\over4}-{1\over k}$, and thus $\sum_{i=2}^{n}{1\over{i^2}} - {3\over4}+{1\over n} \leq 0$
+
+Also, since
+$$
+\begin{align}
+&{1\over k+1} - {1\over k} + {1\over (k+1)^2} \\  
+=& \frac{k(k+1)- (k+1)^2 - k}{(k+1)^2k} \\ 
+=&\frac{k^2 + k - (k^2 + 2k + 1) - k}{(k+1)^2 k}  \\ 
+=& \frac{-2k-1}{(k+1)^2k}
+\end{align}
+$$
+Since $k \geq 2$, the above expression is smaller than 0.
+
+Thus
+$$
+\sum_{i=2}^{k+1}{1\over{i^2}} -{3\over4}+ {1\over k+1} = \sum_{i=2}^{k}{1\over{i^2}} -({3\over4} - {1\over k}) + ({1\over k+1} - {1\over k} + {1\over (k+1)^2}) \leq 0
+$$
+So, $\sum_{i=2}^{k+1}{1\over{i^2}} \leq {3\over4} -{1\over k+1}$, and the claim thus holds for $n = k+1$
+
+Q. E. D.
+
+
+
+
+
+
+
+
+
