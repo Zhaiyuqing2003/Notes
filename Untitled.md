@@ -68,19 +68,13 @@ remove
 
 
 
-seonmic2@illinois.edu
 
 
 
 
+$$
+\text{abcdefghijklmnopqrstuvwxyz}
+$$
 
 
-
-
-
-
-
-
-
-
-
+hjk

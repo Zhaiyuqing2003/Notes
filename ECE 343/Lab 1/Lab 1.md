@@ -147,7 +147,7 @@ While we do not require you to memorize Fourier transform derivations for this l
    ><a name="center black block pad-bottom small">Figure Solution 1: Magnitude of $\bold H(\omega)$ (V) / Frequency $\omega$ (Hz) given ($\R_1\C_1 = 1$)</a>
    
    <div name="page-break"></div>
-### <a id="2.2"></a>2.2 RC filter with load resistor
+### <a id="2.2"></a>2.2   RC filter with load resistor
 
 In this section we expand the analysis done in section <a href="#2.1" name="red">2.1</a> by attaching a load resistor at the output node.
 
@@ -205,7 +205,7 @@ For the circuit shown in Fig. <a href="#fig_2" name="red">2</a> above:
 
 <div name="page-break"></div>
 
-### <a id="2.3"></a>2.3 RC filter with Op-Amp
+### <a id="2.3"></a>2.3   RC filter with Op-Amp
 
 In this section we expand the analysis done in section <a href="#2.2" name="red">2.2</a> by inserting an Op-Amp between the filter and load resistor.
 
@@ -406,12 +406,11 @@ In this section we will verify the analysis done in section <a name="red" href="
 4. What is the functionality of the Op-Amp in the circuit?
 
    >Op-Amp separates the load resistor from the RC circuit (no current will flow from $\R_1$ to $\R_\L$), so that the voltage of positive input side (i.e. the $\V\tsub out;$) only depends on $\R_1$ and $\C_1$, which makes equivalent to the circuit in section 2.1. Therefore, the $\V\tsub out;$ only depends on RC circuit and we could pick whatever $\R_\L$ we wish without worrying changing the behavior of response function.
-
-## 4   Measurement Data
+<div name="page-break"></div>
+## <a id="4"></a>4   Measurement Data
 
 In this section you will build the circuits from the previous sections on a breadboard and take measurements in `SCOPY` using your own `ADALM1000` module. Once again, refer to the tutorials given on the website to become more familiar with setting up and using `SCOPY`.
-
-### 4.1   Measurements $-$ First Order RC Filter
+### <a id="4.1"></a>4.1   Measurements $-$ First Order RC Filter
 
 1. Build the first-order RC circuit shown in Fig. <a name="red" href="#fig_7">7</a> on the breadboard. Use the same values of resistors and capacitors computed in section <a href="#3.1" name="red">3.1</a>.
 
@@ -442,19 +441,20 @@ In this section you will build the circuits from the previous sections on a brea
    >
    ><a name="center black block pad-bottom small">Figure Solution 11: Input Waveform (orange) and Output Waveform (purple). `Time/Div: 3ms.; Voltage/Div: 100mV; Center Voltage: 500mV; Input Freq: 40Hz`</a>
 
+
 6. Fill out (mag [V/V] and phase [deg]) of the following table by changing the frequencies in the AWG window and reading the measurements from the oscilloscope.
 
    | Frequency | $|\bold H(\omega)| $[V/V] | $|\bold H(\omega)|$ [dB] | $\angle \bold H(\omega)$ [deg] |
-   | --------- | ------------------------- | ------------------------ | :----------------------------: |
-   | 40 Hz     | 0.9731                    | -0.2369                  |            -16.3008            |
-   | 60 Hz     | 0.9253                    | -0.6743                  |            -22.8312            |
-   | 80 Hz     | 0.8790                    | -1.1202                  |            -29.6928            |
-   | 100 Hz    | 0.8250                    | -1.6709                  |            -33.5094            |
-   | 120 Hz    | 0.7756                    | -2.2072                  |            -39.1245            |
-   | 140 Hz    | 0.7296                    | -2.7383                  |            -43.1094            |
-   | 160 Hz    | 0.6797                    | -3.3537                  |            -47.8189            |
-   | 180 Hz    | 0.6399                    | -3.8778                  |            -48.9057            |
-   | 200 Hz    | 0.5993                    | -4.4471                  |            -50.7170            |
+   | --------- | ------------------------- | ------------------------ | ------------------------------ |
+   | 40 Hz     | $0.9731$                  | $-0.2369$                | $-16.3008$                     |
+   | 60 Hz     | $0.9253$                  | $-0.6743$                | $-22.8312$                     |
+   | 80 Hz     | $0.8790$                  | $-1.1202$                | $-29.6928$                     |
+   | 100 Hz    | $0.8250$                  | $-1.6709$                | $-33.5094$                     |
+   | 120 Hz    | $0.7756$                  | $-2.2072$                | $-39.1245$                     |
+   | 140 Hz    | $0.7296$                  | $-2.7383$                | $-43.1094$                     |
+   | 160 Hz    | $0.6797$                  | $-3.3537$                | $-47.8189$                     |
+   | 180 Hz    | $0.6399$                  | $-3.8778$                | $-48.9057$                     |
+   | 200 Hz    | $0.5993$                  | $-4.4471$                | $-50.7170$                     |
 
    **NOTE:** The phase given by `CH1-2` Phase may not match the phase given in the simulations. For these phases, you should use cursors to measure the time delay $t_d$ between the output and input signal to calculate $\angle \bold H(\omega)$ as shown below:
    $$
@@ -476,11 +476,12 @@ In this section you will build the circuits from the previous sections on a brea
    >
    ><a name="center black block pad-bottom small">Figure Solution 12: Output Frequency Response for Section 4.1 Circuit.</a>
 
+
 8. Comment on the results obtained from measurements and simulations for the 1st-order RC filter.
 
    >The measurement data are largely in agree with the simulation results, with measurement data slightly deviates from the simulation result. This could be caused by the inaccuracy of resistance and capacitance due to manufacturing error, and the unavoidable error from Scopy’s measurement.
-
-### 4.2   RC filter with load resistor
+<div name="page-break"></div>
+### <a id="4.2"></a>4.2   RC filter with load resistor
 
 Build the second order RC circuit in Fig. <a name="red" href="#fig_8">8</a> on the breadboard.
 
@@ -505,16 +506,17 @@ Build the second order RC circuit in Fig. <a name="red" href="#fig_8">8</a> on t
    ><img id="fig_sol_13" src="./Lab 1.assets/image-20240907155346166.png" alt="image-20240907155346166" style="zoom:50%;" />
    >
    ><a name="center black block pad-bottom small">Figure Solution 13: Input Waveform (orange) and Output Waveform (purple). `Time/Div: 500us; Voltage/Div: 100mV; Center Voltage: 500mV; RL: 5kOhm; Input Freq:  200Hz`</a>
-   >
+
    ><img id="fig_sol_14" src="./Lab 1.assets/4.2-330-cursor.bmp" alt="4.2-330-cursor" style="zoom: 33%;" />
    >
    ><a name="center black block pad-bottom small">Figure Solution 14: Output Frequency Response for Section 4.2 Circuit. `RL = 5kOhm`</a>
 
+
 3. How does the load resistor change the **3** $-$ **dB** cut-off frequency? How does it change your gain at DC?
 
    >As $\R_\L \uparrow$, $\omega\tsub 3dB; \to 160\Hz$ (the theoretical cutoff frequency without load resistor), and the $\bold H(0) \downarrow$. 
-
-### 4.3   RC filter with Op-Amp
+<div name="page-break"></div>
+### <a id="4.3"></a>4.3   RC filter with Op-Amp
 
 Build the second order RC filter in Fig. <a name="red" href="#fig_9">9</a> on the breadboard. **Keep** **this** **circuit** **for** **your** **demo** **in** **lab**.
 
@@ -552,4 +554,4 @@ Build the second order RC filter in Fig. <a name="red" href="#fig_9">9</a> on th
 
 4. Comment on the results obtained from measurements and simulations for the RC filter.
 
-   >They are largely similar. We see that cutoff frequency both stays almost same for different $\R_\L$. Almost the experiment results seems to have a lower cutoff frequency then the simulation results.
+   >They are largely similar. We see that cutoff frequency both stays almost same for different $\R_\L$. Although the experiment results seems to have a lower cutoff frequency then the simulation results.
