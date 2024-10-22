@@ -18,6 +18,50 @@ $$
 $$
 # ECE 343 Lab #3: Power Supply and Voltage Regulator
 
+## 1   Introduction
+
+**Learning Objectives:**
+
+* Circuit design using nonlinear circuit elements
+* Making and justifying design choices based on requirements
+* Simulate design power supply on LTSpice
+* Evaluate performance parameters and compare with design requirements
+* Build a AC-DC power supply
+* Solder circuit on a PCB
+* Compute DC-DC conversion efficiency of three circuits - voltage dividers, zener diode based on DC-DC conversion (ECE 110), power supply designed in this lab (ECE 343).
+* Compare DC-DC conversion efficiency of designed voltage regulators with DC-DC conversion using a boost/buck converter (ECE 469)
+
+**Components Required:**
+
+* **Breadboard**
+* **Resistors, Capacitors**: based on designs.
+* **Diodes:** D1N750 (Zener Diode), D1N 4001/4002 (Rectifier Diodes).
+* **BJT:** 2N3055, **OpAmp:** LM741
+
+<div name="page-break"></div>
+
+## 2   Introduction
+
+In this lab we will design an AC/DC power supply. This project will be completed in three lab sessions and will call upon your knowledge of nonlinear circuit elements like diodes and the ability to make justified design choices. The design makes use of two different kinds of diodes - the basic silicon PB junction device, used as a rectifier in this case, and the zener diode, used to regulate the output DC voltage. Figure <a name="red" href="#figure_1">1</a> shows the block diagram of a basic DC power supply.
+
+The various components of the DC power supply are:
+
+* **Transformer:** Transfers electrical energy from one circuit to another. It consists of two coils (primary and secondary) would on a magnetic core. The primary winding is connected to the **120** V (RMS) AC mains and the secondary winding is connected to the rectifier circuit.
+* **Diode Rectifier:** The rectifier circuit converts the input AC signal $\V\tsub s;$ to a one sided signal. **(Lab 2)**.
+* **Filter:** The output of rectifier is passed through a filter block to reduce ripple in the signal.
+* **Zener-diode based regulator**: Used to further reduce the ripple in the voltage and to give a stable DC output voltage.
+
+## 3 Design Specifications
+
+The power supply will be designed to meet the following specifications,
+
+* DC open circuit output voltage is 4.7V.
+* Open circuit output voltage stays within 2% of the desired voltage as AC line voltage varies from 115 V (rms) to 125 V (rms).
+* Ripple voltage at output is less than 2% of open circuit output DC voltage.
+* The output current can vary from 0 to 20 mA.
+
+<div name="page-break"></div>
+
 ## 4   Design Walk-through
 
 ### 4.1   AC power source and rectifier
@@ -169,7 +213,9 @@ Using the maximum allowable **output ripple voltage** (from the specifications),
 
 Sketch the complete power supply circuit (based on bridge rectifier) you have designed. Include all the components and their values. For now you can replace the transformer circuit with sinusoidal input of appropriate value.
 
-><img src="./Lab 3.assets/image-20240923185820565.png" alt="image-20240923185820565" style="zoom:33%;" />
+><img src="./Lab 3.assets/image-20241015205337516.png" alt="image-20241015205337516" style="zoom: 25%;" />
+
+<div name="page-break"></div>
 
 ## 5   Simulations
 
@@ -177,20 +223,26 @@ Sketch the complete power supply circuit (based on bridge rectifier) you have de
 
   | $\bold{V_in}$ (V) | $\bold{I_L}$ (mA) | Ripple across C (V) | Output voltage ripple (mV) | Output DC voltage (V) |
   | :---------------: | :---------------: | :-----------------: | :------------------------: | :-------------------: |
-  |    $24\sqrt 2$    |        $0$        |        1.084        |           2.330            |         4.750         |
-  |    $26\sqrt 2$    |        $0$        |        1.197        |           2.355            |         4.756         |
-  |    $25\sqrt 2$    |       $20$        |        1.141        |           3.356            |         4.725         |
-  |    $25\sqrt 2$    |        $0$        |        1.140        |           2.380            |         4.752         |
-
-  >Note, it seems the output voltage ripple is much smaller than we expected, that is because we uses $\R\tsub z, max;$ to calculate the $\V\tsub ripple, out;$, the actual $\R\tsub z;$ are usually around $2\ohm$ rather than $19\ohm$. Also, the actual $\I\tsub L, max;$ seems to be a bit smaller according to LTSpice, it around $51\mV$, the $\text f$ is also bigger, than expected, since for each cycle, not all the time are spent discharging (the capacitor will also be in charging state for some time), this together cause lower-than-expected ripple voltage across C. Also, the formula we use assume the capacitor discharges linearly, but actually the process will slow down result in lower ripple voltage.
+  |    $24\sqrt 2$    |        $0$        |        1.505        |           3.521            |         4.770         |
+  |    $26\sqrt 2$    |        $0$        |        1.662        |           3.621            |         4.777         |
+  |    $25\sqrt 2$    |        $0$        |        1.583        |           3.571            |         4.774         |
+  |    $25\sqrt 2$    |       $20$        |        1.584        |           4.557            |         4.754         |
 
 * Also save the output plots for each case.
 
-  >![Figure_1](./Lab 3.assets/Figure_1.svg)
+  >![Figure_1](./Lab 3.assets/Figure_1-1729043521934-1.svg)
 
-## 7   Design of a complete power supply
+## 6 Bench Test
 
-#### 7.1.1   Increasing the supply voltage
+Build the circuit you have tested in simulations. Complete the following table to verify its operation. **Please note:** ask your TA to verify your circuit before you test it.
+
+| $\bold{V_in}$ (V) | $\bold{I_L}$ (mA) | Ripple across C (V) | Output voltage ripple (mV) | Output DC voltage (V) |
+| :---------------: | :---------------: | :-----------------: | :------------------------: | :-------------------: |
+|   $125\sqrt 2$    |        $0$        |        1.89         |            47.7            |        4.8475         |
+
+## 7   Increasing the supply voltage
+
+#### 7.1   Design and Calculation
 
 The first step is to increase the output voltage of the power supply to approximately $\bold {10V}$. Consider the circuit shown below:
 
@@ -220,9 +272,16 @@ The first step is to increase the output voltage of the power supply to approxim
 
   >This should work, as the maximum voltage difference $\bold{V_{c, max}}$ is smaller than the Op-Amp maximum.
 
-* Sketch the new circuit that includes Op-Amp in negative feedback configuration to increase the power supply output. **Note:** The rail voltage $\bold{V}$
 
-| $\bold{V_in}$ (V) | $\bold{I_L}$ (mA) | Ripple across C (V) | Output voltage ripple (mV) | Output DC voltage (V) |
+* Sketch the new circuit that includes Op-Amp in negative feedback configuration to increase the power supply output. **Note:** The rail voltage $\bold{V_+}$ can be taken from the terminals of filter capacitor and $\bold {V_-}$ can be at ground.
+
+  > ![image-20241015212438525](./Lab 3.assets/image-20241015212438525.png)
+
+### 7.2   LTSpice Simulation
+
+* Simulate your circuit using LTSpice. Complete the following table to verify its operation. **Please Note:** Ask your TA to verify your circuit before you test it.
+
+   | $\bold{V_in}$ (V) | $\bold{I_L}$ (mA) | Ripple across C (V) | Output voltage ripple (mV) | Output DC voltage (V) |
 | :---------------: | :---------------: | :-----------------: | :------------------------: | :-------------------: |
 |    $24\sqrt 2$    |        $0$        |        1.540        |           7.269            |         9.541         |
 |    $26\sqrt 2$    |        $0$        |        1.700        |           7.478            |         9.553         |
@@ -231,13 +290,29 @@ The first step is to increase the output voltage of the power supply to approxim
 |    $25\sqrt 2$    |       $20$        |        1.620        |           7.474            |         9.548         |
 |    $25\sqrt 2$    |       $80$        |        1.620        |          4.470e-5          |         0.184         |
 
-* Seems like that at 80mA, the circuit fails to maintain its voltage. The datasheet said that LM741 have a maximum short circuit output current of 25mA, so it’s not able to sustain 80mA output.
-* 
-* 45.58mW (R2), 45.58mW (R1), 2.061W (RS)
+* Is the output DC voltage maintained at the designed value for different load currents? Justify your answer. **Hint: Device Datasheet can give you a clue**
 
-### 7.2   Increasing output current rating
+  >Seems like that at 80mA, the circuit fails to maintain its voltage. The datasheet said that LM741 have a maximum short circuit output current of 25mA, so it’s not able to sustain 80mA output.
 
-#### 7.2.1   Design and Calculation
+* Note down the maximum power dissipated by resistors $\bold{R_1}$, $\bold{R_2}$ and $\bold{R_s}$ under no load conditions and $\bold{V_in} = 25\sqrt 2$
+
+  >$$
+  >\bold{R_1} = 45.58 \mW \\
+  >\bold{R_2} = 45.58 \mW \\
+  >\bold{R_s} = 2.061 \text{W}
+  >$$
+
+* Save simulation plots showing DC output voltage and ripple.
+
+   Note, there is a error is y axis for last simulation in the first plot, the correct one for the last simulation is the middle trace in the second plot.
+
+   >![Figure_1](./Lab 3.assets/Figure_1-1729046307557-3.svg)
+   >
+   ><img src="./Lab 3.assets/image-20241015214713857.png" alt="image-20241015214713857" style="zoom: 15%;" />
+
+## 8  Increasing output current rating
+
+#### 8.1   Design and Calculation
 
 In this section you will make further modifications to your circuit to meet the output current specifications of the power supply. Consider the BJT shown below:
 
@@ -253,7 +328,11 @@ In this section you will make further modifications to your circuit to meet the 
 
   >As the BJT power could be approximated as $\I\tsub E; \cdot \V\tsub CE;$ where $\V\tsub max, CE; = 35.36\V - 9.4\V = 25.96\V$, and $\I\tsub max,  E; = 80\mA$. The calculated power is way smaller than the maximum power rating in datasheet, so we should be fine in this case.
 
-#### 7.2.2   LTSpice Simulation
+* Sketch the complete power supply unit:
+
+  >![image-20241015214603001](./Lab 3.assets/image-20241015214603001.png)
+
+### 8.2   LTSpice Simulation
 
 * Simulate your circuit using LTSpice. Complete the following table to verify its operation.
 
@@ -274,10 +353,95 @@ In this section you will make further modifications to your circuit to meet the 
   >$$
   >
 
-4.8475
+  >![Figure_1](./Lab 3.assets/Figure_1-1729047222137-5.svg)
 
-47.7mV
+## 9   Bench Test
 
-44.630V
+Build the circuit you have tested in simulations. Complete the following table to verify its operation. **Please Note:** Ask your TA to verify your circuit before you test it.
 
-1.89V
+| $\bold{V_in}$ (V) | $\bold{I_L}$ (mA) | Output DC voltage (V) |
+| :---------------: | :---------------: | :-------------------: |
+|   $115\sqrt 2$    |        $0$        |        $9.588$        |
+|   $120\sqrt 2$    |        $0$        |        $9.637$        |
+|   $125\sqrt 2$    |        $0$        |        $9.650$        |
+
+## 10   Soldering
+
+Solder the DC power supply components on the PCB provided to you! Check if the soldered PCB gives the correct output.
+
+
+
+## 11 DC-DC Conversion 
+
+In this section we will explore the idea of DC-DC conversion in some more detail. DC-DC conversion is an important operation in electronic circuits. The power supply in a desktop personal computer (PC) converts an AC input to a DC voltage value that is then used to power different components on the PC. Circuits also use multiple DC voltage levels. The pinout of an ATX power supply used in a PC is shown below in Fig. 12. Note that the pinouts indicate several DC voltage values. The power supply we designed can be viewed as a DC-DC converter (after the rectification step). The final regulator designed in this lab used a reference voltage of $\bold{V_ref = 4.7V}$.
+
+1. Consider a common method for DC-DC conversion shown in Fig. 13. The circuit in Fig. 13 is a voltage divider. Assume $\bold {V_1 = 25\sqrt 2 V}$. Compute the efficiency $\eta$ of the voltage divider circuit for the values of $\bold{V_out}$ shown in table 8. You may assume $\bold{R_1 = 1k }\boldsymbol\ohm$.
+
+   | $\bold{V_out}$ | $\bold{R_2}(\bold{k\ohm})$ | Efficiency, $\eta$ |
+   | :------------: | -------------------------- | ------------------ |
+   |    $\bold8$    | 292.4                      | 22.63%             |
+   |  $\bold{4.7}$  | 153.3                      | 13.30%             |
+   |    $\bold2$    | 59.96                      | 5.657%             |
+
+2. …
+
+   >$$
+   >\eta = \frac{0.02 \cdot 4.7}{(25 \sqrt 2- 4.7)^2 / 375 } = 3.751\%
+   >$$
+
+3. …
+
+   > $$
+   > I_E = I_L + \frac{\V\tsub out;}{\R_1 + \R_2} = 80.477\mA
+   > $$
+   >
+   > $$
+   > I_C = \alpha I_E = 79.672\mA
+   > $$
+   >
+   > when taking $\alpha = 0.99$.
+   > $$
+   > \eta = \frac{80 \cdot 9.54}{79.962 \cdot (25 \sqrt 2) } = 27.00\%
+   > $$
+
+4. …
+
+   >It is trivial as $\langle \V_x \rangle = D\V\tsub in;$. 
+
+5. …
+
+   >The response function is
+   >$$
+   >H(\omega) = \frac{1/j\omega C}{1 /j\omega C + j\omega L} = \frac{1}{1-\omega^2LC}
+   >$$
+   >
+
+## 12   Reflections
+
+1. ..
+
+   > Voltage Divider: Easy setup, but low efficiency when output voltage is far lower than input voltage.
+   >
+   > Zener Diode: Cannot output high current, resistant to noise.
+   >
+   > OpAmp + BJT: Decent efficiency, High current output.
+
+2. …
+
+   >?
+
+3. …
+
+   >We need to have high current/voltage output, and we need high power efficiency. Buck converter is the best, as it has high output and high power efficiency.
+
+4. …
+
+   >Wolfson WM6180C Audio Codec.
+   >
+   >TriQuint TQM666032, TQM667031, TQM661035 Power Amplifiers.
+   >
+   >Infineon SMP3i SMARTi Power Management IC
+
+5. …
+
+   >The zener diode typically are around 4.7V. So the second and third converter doesn’t work. The voltage divider could produce the desired voltage, but require further filtering. The buck converter have fluctuating voltage, so it also doesn’t work. The final converter could be a voltage divider with additional filtering.
