@@ -281,3 +281,7 @@ In this section you will make further modifications to your circuit to meet the 
 44.630V
 
 1.89V
+
+
+
+this is pure d
