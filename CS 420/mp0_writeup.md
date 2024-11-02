@@ -17,7 +17,7 @@ Time: 0.304446
 Operations: 100000000 and MegaFlops/s:328.465494
 ```
 
-The  `add.c` file
+The `add.c` file
 
 ```c
 /*

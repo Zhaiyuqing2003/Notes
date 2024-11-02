@@ -415,20 +415,27 @@ In this section we will explore the idea of DC-DC conversion in some more detail
    >H(\omega) = \frac{1/j\omega C}{1 /j\omega C + j\omega L} = \frac{1}{1-\omega^2LC}
    >$$
    >
+   >Taking $\omega \to 0$, the theoretical efficiency is 100%.
+   
 
 ## 12   Reflections
 
 1. ..
 
-   > Voltage Divider: Easy setup, but low efficiency when output voltage is far lower than input voltage.
    >
-   > Zener Diode: Cannot output high current, resistant to noise.
+   > Voltage Divider: Low efficiency, have noise. But it is easy to set up.
    >
-   > OpAmp + BJT: Decent efficiency, High current output.
+   > Zener Diode / OpAmp + BJT: Low efficiency, resistant to noise. (Zener diode / Opamp feedback).
+   >
+   > Buck Circuit: High efficiency (almost 100%), have noise, typically requires plenty of space to setup. (As for big capacitor and inductor).
 
 2. …
 
-   >?
+   >Voltage Divider: Digital circuit (noise doesn't matter in this case).
+   >
+   >Zener Diode / OpAmp + BJT: Analog circuit (where noise does matter)
+   >
+   >Buck Circuit: Power circuit (where efficiency matters)
 
 3. …
 
@@ -444,4 +451,4 @@ In this section we will explore the idea of DC-DC conversion in some more detail
 
 5. …
 
-   >The zener diode typically are around 4.7V. So the second and third converter doesn’t work. The voltage divider could produce the desired voltage, but require further filtering. The buck converter have fluctuating voltage, so it also doesn’t work. The final converter could be a voltage divider with additional filtering.
+   >We could use zener diode / OpAmp + BJT, as the analog device requires as low noise as possible. (other options all have noises).
