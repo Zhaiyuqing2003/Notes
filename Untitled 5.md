@@ -10,7 +10,11 @@ It seems that $V_T$ actually changes. Since
 $$
 I_D = C(V_{GS} - V_T)^2
 $$
+<<<<<<< Updated upstream
 bigger $V_T$ makes the $I_D$ smaller. So the case  where $V_{SB}$ is bigger make the $V_T$ bigger, and therefore make $I_D$ smaller and therefore $V_D$ bigger (at same $V_{GS}$).
+=======
+bigger $V_T$ makes the $I_D$ smaller. So the case  where $V_{SB}$ is bigger make the $V_T$ smaller, and therefore make $I_D$ greater and therefore $V_D$ smaller (at same $V_{GS}$).
+>>>>>>> Stashed changes
 
 
 
@@ -48,6 +52,7 @@ saturation voltage around 1.63V.
 
 
 
+<<<<<<< Updated upstream
 ![image-20241029180256493](./Untitled 5.assets/image-20241029180256493.png)
 
 ![image-20241029180247154](./Untitled 5.assets/image-20241029180247154.png)
@@ -110,3 +115,6 @@ $V_{ov} = 1.562 - 1.25 = 312mV$
 
 1.3095mA,  8.40m, +30dB, +200kHz-300kHz
 
+=======
+$V_{GS}$ provides DC bias, $V_{in}$ is the small signal
+>>>>>>> Stashed changes

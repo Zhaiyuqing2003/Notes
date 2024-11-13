@@ -273,7 +273,7 @@ The first step is to increase the output voltage of the power supply to approxim
   >This should work, as the maximum voltage difference $\bold{V_{c, max}}$ is smaller than the Op-Amp maximum.
 
 
-* Sketch the new circuit that includes Op-Amp in negative feedback configuration to increase the power supply output. **Note:** The rail voltage $\bold{V_+}$ can be taken from the terminals of filter capacitor and $\bold {V_-}$ can be at ground.
+* Sketch the new circuit that includes Op-Amp in negative feedback configuration to increase the power supply output. **Note:** The rail voltage $\bold{V_+}$ can be taken from the tterminals of filter capacitor and $\bold {V_-}$ can be at ground.
 
   > ![image-20241015212438525](./Lab 3.assets/image-20241015212438525.png)
 
@@ -375,7 +375,7 @@ Solder the DC power supply components on the PCB provided to you! Check if the s
 
 In this section we will explore the idea of DC-DC conversion in some more detail. DC-DC conversion is an important operation in electronic circuits. The power supply in a desktop personal computer (PC) converts an AC input to a DC voltage value that is then used to power different components on the PC. Circuits also use multiple DC voltage levels. The pinout of an ATX power supply used in a PC is shown below in Fig. 12. Note that the pinouts indicate several DC voltage values. The power supply we designed can be viewed as a DC-DC converter (after the rectification step). The final regulator designed in this lab used a reference voltage of $\bold{V_ref = 4.7V}$.
 
-1. Consider a common method for DC-DC conversion shown in Fig. 13. The circuit in Fig. 13 is a voltage divider. Assume $\bold {V_1 = 25\sqrt 2 V}$. Compute the efficiency $\eta$ of the voltage divider circuit for the values of $\bold{V_out}$ shown in table 8. You may assume $\bold{R_1 = 1k }\boldsymbol\ohm$.
+1. Consider a common method for DC-DC conversion shown in Fig. 13. The circuit in Fig. 13 is a voltage divider. Assume $\bold {V_1 = 25\sqrt 2 V}$. Compute the efficiency $\eta$ of the voltage divider circuit for the values of $\bold{V_out}$ shown in table 8. You may assume $\bold{R_1 = 1k }\boldsymbol\ohm$. ($\eta = \frac{\text{output power}}{\text{input power}}$)
 
    | $\bold{V_out}$ | $\bold{R_2}(\bold{k\ohm})$ | Efficiency, $\eta$ |
    | :------------: | -------------------------- | ------------------ |
@@ -383,13 +383,15 @@ In this section we will explore the idea of DC-DC conversion in some more detail
    |  $\bold{4.7}$  | 153.3                      | 13.30%             |
    |    $\bold2$    | 59.96                      | 5.657%             |
 
-2. …
+2. Consider now  a circuit similar to the DC-DC conversion circuit you saw in ECE 110 **(Introduction to Electronics)**. We designed a similar circuit in Phase 1 of this project. Compute the efficiency of the circuit shown below under full load conditions. Assume $\bold{V_in = 25\sqrt 2 \ V}$, $\bold {R_1 = 375\ohm}$, $\bold{I_L(max) = 20mA}$, $\bold{V_out = 4.7\V}$
 
    >$$
    >\eta = \frac{0.02 \cdot 4.7}{(25 \sqrt 2- 4.7)^2 / 375 } = 3.751\%
    >$$
 
-3. …
+3. Consider the DC-DC conversion step that we implemented using the circuit shown in Fig. 15 below.
+
+   Assuming that power consumed by the transistor is the main source of power loss in the converter shown in Fig. 15, compute the efficiency of the DC regulator you designed under full load conditions ($\bold{I_L = 80mA}$). Assume $\bold{V_z = 4.7V}$, $\bold{R_1 = 10k\ohm}$, $\bold{R_2 = 10k\ohm}$, and $\bold{V_out = 9.54\V}$
 
    > $$
    > I_E = I_L + \frac{\V\tsub out;}{\R_1 + \R_2} = 80.477\mA
@@ -404,44 +406,76 @@ In this section we will explore the idea of DC-DC conversion in some more detail
    > \eta = \frac{80 \cdot 9.54}{79.962 \cdot (25 \sqrt 2) } = 27.00\%
    > $$
 
-4. …
-
+4. Consider thje circuit shown in Fig. 16. The switches $\bold {S_1}$ and $\bold{S_2}$ operate in complimentary fashion. The figure alsop shows the switching function $\phi_1(t)$ of switch $\bold{S_1}$. Note that $\phi_1(t)$ is periodic with period $\bold{T}$. The switch $\bold{S_1}$ is turned on for a duration $\bold{DT}$ during every cycle. The quantity $\bold D$ is called duty ration and is given by
+   $$
+   \bold{D} = \frac{\text{Time switch $\bold S_1$ is on}}{\bold{T}}.
+   $$
+   The circuit above represents the idea behind buck converter circuit that you will study in detail in ECE 464/469 **(Power Electronics/Power Electronics Lab)**. The average value, $\langle \bold{V_x} \rangle$, of voltage $\bold{V_x(t)}$ is given by,
+   $$
+   \langle \bold {V_x} \rangle = \frac{1}{\text T} \int_{0}^{\text T} \V\tsub x; (t)\, \text{dt}.
+   $$
+   Compute the value of $\langle \bold{V_x} \rangle$ in terms of duty ratio $\bold D$.
+   
    >It is trivial as $\langle \V_x \rangle = D\V\tsub in;$. 
 
-5. …
+5. The inductor and capacitor in Fig. 16, perform lowpass filtering on voltage $\bold{V_x(t)}$. Assuming that all the components in Fig. 14 are ideal, what would be DC-DC conversion efficiency (in theory) of the converter in Fig. 16.
 
    >The response function is
    >$$
    >H(\omega) = \frac{1/j\omega C}{1 /j\omega C + j\omega L} = \frac{1}{1-\omega^2LC}
    >$$
+<<<<<<< Updated upstream
    >
    >Taking $\omega \to 0$, the theoretical efficiency is 100%.
    
+=======
+   >Taking $\omega \to 0$, the theoretical efficiency is 100%.
+   
+6. Observe demo of the DC-DC conversion using a boost/buck converter (based on the circuit shown in Fig. 16) used in ECE 469. Note down the input power and output power of the converter, and compute the efficiency of the converter.
+
+   >The output power $P = \frac{(7.6\V)^2}{10\ohm } = 5.776 \text{W}$, the input power is $P = V\cdot I = 20 \V \cdot 0.356\A = 7.12\text{W}$, and so the efficiency is $\eta = 5.776\text{W} / 7.12 \text{W} = 81.1\%$.
+>>>>>>> Stashed changes
 
 ## 12   Reflections
 
-1. ..
+1. What are the advantages and disadvantages of each of the DC-DC converters discussed in Section 11.
 
+<<<<<<< Updated upstream
    >
    > Voltage Divider: Low efficiency, have noise. But it is easy to set up.
    >
    > Zener Diode / OpAmp + BJT: Low efficiency, resistant to noise. (Zener diode / Opamp feedback).
    >
    > Buck Circuit: High efficiency (almost 100%), have noise, typically requires plenty of space to setup. (As for big capacitor and inductor).
+=======
+   > Voltage Divider: Low efficiency. Noisy. Easy to setup.
+   >
+   > Zener Diode / OpAmp + BJT: Low efficiency, resistant to noise (reduced by Zener Diode / OpAmp feedback).
+   >
+   > Buck Circuit: High efficiency (almost 100%). Noisy. Typically requires plenty of space to setup. (The capacitor and inductor will be really big).
+   
+2. Identify one application for each type circuit we discussed in section 11.
+>>>>>>> Stashed changes
 
-2. …
+   >Voltage Divider: Digital circuit (noise doesn’t matter here).
+   >
+   >Zener Diode / OpAmp / BJT: Analog circuit (where noise does matter)
+   >
+   >Buck Circuit: Power circuit (where efficiency matters)
 
+<<<<<<< Updated upstream
    >Voltage Divider: Digital circuit (noise doesn't matter in this case).
    >
    >Zener Diode / OpAmp + BJT: Analog circuit (where noise does matter)
    >
    >Buck Circuit: Power circuit (where efficiency matters)
+=======
+3. You may have noticed several solar panels on the roof of ECE building.. Some of solar panels (60 in number!) are used for research purposes. One of the goals is to use these sixty panels to supply power back to the power grid. This will require converters to be designed for each solar panel. Assuming that the goal is to transfer $\bold{21kW}$ of power back to power grid, which one of the converters will you pick. State your reasons. What would be the main constraint that will influence your decision? Would any additional information help you make your decision?
+>>>>>>> Stashed changes
 
-3. …
+   >We need to have high current/voltage output, and we need high power efficiency. Buck converter is the best, as it has high output and high power efficiency. Addition information like that noise requirement, max current and voltage could help us to decide the capacitor and inductor we want to choose when we build the buck converter. (but it’s almost certain that we need to use buck converter in this case, other options’ energy loss is not acceptable, unless we have really strange requirements).
 
-   >We need to have high current/voltage output, and we need high power efficiency. Buck converter is the best, as it has high output and high power efficiency.
-
-4. …
+4. Figure 17 shows various components in an IPhone. Identify some analog components in Fig. 17.
 
    >Wolfson WM6180C Audio Codec.
    >
@@ -449,6 +483,11 @@ In this section we will explore the idea of DC-DC conversion in some more detail
    >
    >Infineon SMP3i SMARTi Power Management IC
 
-5. …
+5. Lithium-Ion batteries used in cell phones are rated at $\bold{3.7V}$. The analog components usually operate in the range $\bold{1.2V - 1.8V}$, depending on the process technology $(\bold{65nm - 180nm})$. Analog components are also sensitive to noise. Would any of the methods discussed in section 11 work? Justify your answer. If none of the above methods work, propose a method that can be applied in this case.
 
+<<<<<<< Updated upstream
    >We could use zener diode / OpAmp + BJT, as the analog device requires as low noise as possible. (other options all have noises).
+=======
+   >We could use Zener diodes / OpAmp + BJT, as the analog device requires as low noise as possible. (other options all have noises).
+   
+>>>>>>> Stashed changes
