@@ -10,11 +10,9 @@ It seems that $V_T$ actually changes. Since
 $$
 I_D = C(V_{GS} - V_T)^2
 $$
-<<<<<<< Updated upstream
 bigger $V_T$ makes the $I_D$ smaller. So the case  where $V_{SB}$ is bigger make the $V_T$ bigger, and therefore make $I_D$ smaller and therefore $V_D$ bigger (at same $V_{GS}$).
-=======
-bigger $V_T$ makes the $I_D$ smaller. So the case  where $V_{SB}$ is bigger make the $V_T$ smaller, and therefore make $I_D$ greater and therefore $V_D$ smaller (at same $V_{GS}$).
->>>>>>> Stashed changes
+
+
 
 
 
@@ -117,4 +115,4 @@ $V_{ov} = 1.562 - 1.25 = 312mV$
 
 =======
 $V_{GS}$ provides DC bias, $V_{in}$ is the small signal
->>>>>>> Stashed changes
+>

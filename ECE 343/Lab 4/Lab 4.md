@@ -1,3 +1,22 @@
+$$
+{\def\I{\text{I}}}
+{\def\V{\text{V}}}
+{\def\mV{\text{mV}}}
+{\def\R{\text{R}}}
+{\def\L{\text{L}}}
+{\def\A{\text{A}}}
+{\def\for{\text{for}}}
+{\def\if{\text{if}}}
+{\def\note#1!{\fbox{$#1$}}}
+{\def\tsub#1;{{_{\text{#1}}}}}
+{\def\k{\text{k}}}
+{\def\P{\text{P}}}
+{\def\mW{\text{mW}}}
+{\def\mA{\text{mA}}}
+{\def\d{\text{d}}}
+{\def\Hz{\text{Hz}}}
+{\def\dB{\text{dB}}}
+$$
 # ECE 343 Lab #4: MOSFET: Large Signal Model
 
 ## 1   Introduction
@@ -21,8 +40,6 @@ The setup for obtaining $\bold{I_D}$ vs $\bold {V_{GS}}$ is shown in Figure. <a 
 
 1. Draw the circuit shown in Figure. <a name="red" href="#figure_1">1</a>. Add an NMOS4 device, and use $\V\tsub DD; = 5\V$ and $\R\tsub D; = 100\ohm$.
 
-   >
-
 2. Define your own NMOS model (in this case called `custom`) by adding a spice directive with the text:
 
    `.model custom nmos (vt0=0.7 gamma=0.6 phi=0.8)`
@@ -33,9 +50,13 @@ The setup for obtaining $\bold{I_D}$ vs $\bold {V_{GS}}$ is shown in Figure. <a 
 
 5. Plot and save screenshots of $\bold{I_D}$ vs $\bold{V_GS}$ and $\bold{V_D}$ vs $\bold{V_GS}$. (Note: The x-axis is $\bold{V_GS}$, which is not necessarily equal to $\bold{V_G}$)
 
+   ><img src="./Lab 4.assets/image-20241029154008832.png" alt="image-20241029154008832" style="zoom: 33%;" />
    >
+   ><img src="./Lab 4.assets/image-20241112232721104.png" alt="image-20241112232721104" style="zoom:33%;" />
 
 6. Plot and save a screenshot of $\bold{sqrt}(\bold{I_D})$ vs $\bold{V_GS}$. (Note: Right click the name of the window and type $\bold{sqrt}()$ around the name of your measurement).
+
+   > <img src="./Lab 4.assets/image-20241112232749659.png" alt="image-20241112232749659" style="zoom:33%;" />
 
 7. Complete the information in Table <a name="red" href="#table_1">1</a>. (Note: You can remove markers onto different curves by using the up or down arrow key. You can also right click the markers to view which parametric value the curve corresponds to).
 
@@ -46,6 +67,12 @@ The setup for obtaining $\bold{I_D}$ vs $\bold {V_{GS}}$ is shown in Figure. <a 
    |                   $0.50$                   |                $850\mV$                 |
 
 8. Give a short explanation of the $\bold{V_D}$ vs $\bold{V_GS}$ plot and threshold voltage results that you obtain.
+
+   >It seems that $V_T$ actually changes. Since 
+   >$$
+   >I_D = C(V_{GS} - V_T)^2
+   >$$
+   >bigger $V_T$ makes the $I_D$ smaller. So the case  where $V_{SB}$ is bigger make the $V_T$ bigger, and therefore make $I_D$ smaller and therefore $V_D$ bigger (at same $V_{GS}$).
 
 ### 2.2   $\bold{I_D}$ vs $\bold{V_DS}$ Characteristic
 
@@ -59,12 +86,14 @@ In this section we will investigate the $\bold{I_D}$ vs $\bold{V_DS}$ characteri
 
 2. Plot and take a screenshot of $\bold{I_D}$ vs $\bold{V_DS}$.
 
+   ><img src="./Lab 4.assets/image-20241112232950325.png" alt="image-20241112232950325" style="zoom:33%;" />
+
 3. Complete the information in Table <a name="red" href="#table_2">2</a>.
 
    | $\bold{V_GS}(\bold{V})$ | $\bold{R_on}(\boldsymbol\Omega)$ (Linear) | $\bold{R_on}(\boldsymbol\Omega)$ (Saturation) | $\lambda$ | $\bold{k_n}$ |
    | :---------------------: | ----------------------------------------- | --------------------------------------------- | --------- | ------------ |
-   |        $4.00\V$         |                                           | $\infin$                                      | $0$       |              |
-   |        $4.25\V$         |                                           | $\infin$                                      | $0$       |              |
+   |        $4.00\V$         | $18.9\k\ohm$                              | $\infin$                                      | $0$       | $11.94\mu$   |
+   |        $4.25\V$         | $19.753\k\ohm$                            | $\infin$                                      | $0$       | $8.966\mu$   |
 
    **HINTS**:
 
@@ -96,7 +125,9 @@ In this section we will investigate the impact of width-length $\bold{W\big/\ L}
 
 1. Perform a **DC sweep** simulation to approximate the threshold voltage of the MOSFET. Save a screenshot. What is the threshold voltage?
 
-   >Cutoff voltage $\bold{V_T}$ is around $1.25\V$, and saturation voltage is around $1.63\V$.
+   >![image-20241113041405776](./Lab 4.assets/image-20241113041405776.png)
+   >
+   >Cutoff voltage $\bold{V_T}$ is around $1.25\V$, and saturation voltage is around $1.63\V$. 
 
 2. What is the role of $\V\tsub GS;$ and $\V\tsub in;$ in Figure <a name="red" href="#figure_4">4</a>.
 
@@ -104,29 +135,41 @@ In this section we will investigate the impact of width-length $\bold{W\big/\ L}
 
 3. Find the small signal gain of this amplifier in terms of transconductance and load resistance.
 
-   >
+   >For this circuit, $A = -\text{G}\tsub m; \R\tsub out; $ where $\text{G}\tsub m; = g_m$ and $\R\tsub out; = \R\tsub D; \parallel r\tsub ds;$
 
-4. Perform a **Transient** simulation (stop time $150\text{ ms}$, maximum stop $0.1\text{ ms}$) to find the AC gain of the amplifier. (You have to choose a proper $\bold{V_GS}$ to bias the MOSFET in saturation region. For example $\bold{V_GS} = 1.562\V$. Also, note that frequency of the sine wave is actually $50 \Hz$.)
+4. Perform a **Transient** simulation (stop time $150\text{ ms}$, maximum step $0.1\text{ ms}$) to find the AC gain of the amplifier. (You have to choose a proper $\bold{V_GS}$ to bias the MOSFET in saturation region. For example $\bold{V_GS} = 1.562\V$. Also, note that frequency of the sine wave is actually $50 \Hz$.)
+
+   >The input peak-to-peak is $0.002\V$ and output peak-to-peak is $0.05917\V$. So the gain is about $29.585$.
 
 5. Add the command `options plotwinsize=0` to your schematic and run the simulation again. Select the result window and go to `View -> FFT` of $\bold{V_out}$. Note down the frequency and magnitude (in dB) of the first three peaks. What do the peaks in this plot represent?
 
-   >
+   >First three peaks have frequency of $50\Hz$, $100\Hz$, and $150\Hz$ with corresponding magnitude of $-33.58\dB$, $-83.44\dB$, and $-139.55\dB$. Since we are using the MOSFET as an amplifier here, the first peak represents the amplified input sine wave, the later two peaks are noises at harmonic frequencies (but they are very small compared to the first one, and could be ignored).
 
 6. Change the AC magnitude of the input to $50\ \mV$ and find the FFT of $\bold{V_out}$. Note down the frequency and magnitude (in dB) of the first three peaks. How will you interpret two sets of data with different input amplitude?
 
-   >
+   >First three peaks have frequency of $50\Hz$, $100\Hz$, and $150\Hz$ with corresponding magnitude of $710.671\text{m}\dB$, $-15.45\dB$, and $-37.944\dB$. This is amplifier, since we increase the input signal, so it is expected to see that first peak (the amplified sine wave) also get increases, the noise in the output also increases as well (the second and the third peaks)
 
-7. Perform an **AC sweep** simulation to find the DC gain and bandwidth of the amplifier. Take a screenshot of the result. 
+7. Perform an **AC sweep** simulation to find the DC gain and bandwidth of the amplifier. Take a screenshot of the result.
+
+   ><img src="./Lab 4.assets/image-20241112225906376.png" alt="image-20241112225906376" style="zoom: 15%;" />
+   >
+   >The DC gain is about $29.5\dB$, the $3\dB$ bandwidth is about $1.96\text{M}\Hz$.
 
 8. In order to have larger small signal gain, we can increase either transconductance of the MOSFET or load resistance in the setup. In this section, we will increase the **transconductance** and explore its impact on gain and bandwidth. Write down the formula of $\bold{I_D}$ and $\bold{g_m}$ (in terms of $\bold{I_D}$ and $\bold{V_ov}$). What values should you change to increase transconductance while keep operating points of the circuit fixed?
 
+   >$$
+   >\bold{g_m} = 2\cdot \bold{I_D}\big/\bold{V_ov}
+   >$$
+   >
+   >One simple way it to just increase the $\bold{I_D}$, which could be done by put more NMOS in parallel to increase the $\bold{W/\ L}$.
+
 9. Since the width-length ratio of the model we used in LTspice is fixed, we can put more NMOS in parallel to increase the width-length ration. Repeat listed procedure above to complete information in Table <a name="red" href="#table_3">3</a>.
 
-   | $\bold{V_GS}(\bold {V})$ | $\bold{W/\ L}$ | $\bold{I_D}$ | $\bold{g_m}$ | $\bold{A_v} \ (\textbf{gain})$ | **Bandwidth** |
-   | :----------------------: | :------------: | ------------ | ------------ | ------------------------------ | ------------- |
-   |         $1.562$          |  $\text{1X}$   |              |              |                                |               |
-   |         $1.518$          |  $\text{2X}$   |              |              |                                |               |
-   |         $1.494$          |  $\text{3X}$   |              |              |                                |               |
+   | $\bold{V_GS}(\bold {V})$ | $\bold{W/\ L}$ | $\bold{I_D}$ | $\bold{g_m}$ | $\bold{A_v} \ (\textbf{gain})$ | **Bandwidth**     |
+   | :----------------------: | :------------: | ------------ | ------------ | ------------------------------ | ----------------- |
+   |         $1.562$          |  $\text{1X}$   | $1.310\mA$   | $0.00840$    | $29.5\dB$                      | $1.96\text{M}\Hz$ |
+   |         $1.518$          |  $\text{2X}$   | $1.306\mA$   | $0.00837$    | $30.0\dB$                      | $1.18\text{M}\Hz$ |
+   |         $1.494$          |  $\text{3X}$   | $1.310\mA$   | $0.00840$    | $30.5\dB$                      | $751\k\Hz$        |
 
 ## 3   Measurement Data
 
@@ -158,17 +201,23 @@ In this section we will build circuit from section <a name="red" href="#2">2</a>
 
 6. Take a screenshot of the output and export the data as a `.csv` file.
 
+   ><img src="./Lab 4.assets/untitled-1731485282189-2.svg" alt="untitled" style="zoom: 50%;" />
+
 7. Use MATLAB to compute $\bold{I_D}$. Plot $\bold{I_D}$ vs $\bold{V_GS}$ and $\bold{sqrt}(\bold{I_D})$ vs $\bold{V_GS}$ and find the threshold voltage $\bold{V_T}$. (Hint: Use “scatter” to plot the graphs in MATLAB).
+
+   ><img src="./Lab 4.assets/plot.svg" alt="plot" style="zoom:30%;" /><img src="./Lab 4.assets/plot2.svg" alt="plot2" style="zoom:33%;" />
 
 8. Use the $5\k\ohm$ potentiometer to generate a constant $\bold{V_SB}$ at `PIN(4)` as shown in Figure. <a name="red" href="#figure_6">6</a>. (Hint: You can generate this by using the trimpot and the $2.5\V$ from the ADALM1000). **Alternatively**, you con generate $\bold{V_SB}$ by connecting the **Analog Output 2(`W2`)** to the source node and set **DC** voltage of your choice in the signal generator. Repeat the steps $5-7$ for $\bold{V_SB = 0.25V}$ and $\bold{V_SB = 0.5V}$. Complete the information in Table <a name="red" href="#table_4">4</a>.
 
    | Source-Body Voltage $\bold{V_SB}(\bold V)$ | Threshold Voltage $\bold{V_T}(\bold V)$ |
    | :----------------------------------------: | :-------------------------------------: |
-   |                    $0$                     |                                         |
-   |                   $0.25$                   |                                         |
-   |                   $0.50$                   |                                         |
+   |                    $0$                     |                $1.25\V$                 |
+   |                   $0.25$                   |                $1.77\V$                 |
+   |                   $0.50$                   |                $2.25\V$                 |
 
 9. Finally, plot all three curves of $\bold{I_D}$ vs $\bold {V_GS}$ together on one graph, and all three curves $\bold{sqrt}(\bold{I_D})$ vs $\bold{V_GS}$ on another. (Hint: Use the “hold on” command.)
+
+   ><img src="./Lab 4.assets/untitled2-1731486324232-5.svg" alt="untitled2" style="zoom: 50%;" />
 
 10. Keep the circuit of $\bold{V_SB = 0V}$ for demo in lab.
 
@@ -182,13 +231,17 @@ In this section we will build circuit from section <a name="red" href="#2">2</a>
 
 2. Use the $5\V$ output pin of ADALM2000 board and a $5\k\ohm$ potentiometer to fix the gate voltage $\bold{V_GS = 4.0V}$. Again, the $\bold {V_GS}$ can be generated by **Analog Output 2(`W2`)** with arbitrary DC voltage from signal generator.
 
-3. Use **ALICE** to generate a sawtooth waveform of amplitude $\bold{V_pp = 5V}$ with $\bold{freq = 100Hz}$ on channel A.
+3. Use **ALICE** to generate a sawtooth waveform of amplitude $\bold{V_pp = 5V}$ with $\bold{freq = 100Hz}$ on Channel A.
 
 4. Use Channel B to measure the voltage at `PIN(8)`.
 
 5. Take a screenshot of the output and export the data to a `.csv` file.
 
+   ><img src="./Lab 4.assets/untitled4.svg" alt="untitled4" style="zoom: 25%;" />
+
 6. Use MATLAB to compute $\bold{I_D}$ and plot $\bold{I_D}$ vs $\bold{V_DS}$.
+
+   ><img src="./Lab 4.assets/untitled3-1731488275886-2.svg" alt="untitled3" style="zoom: 40%;" />
 
 7. Repeat the steps for $\bold{V_GS = 4.25V}$. Make sure to show both curves on the same plot.
 
@@ -198,6 +251,6 @@ In this section we will build circuit from section <a name="red" href="#2">2</a>
 
    | $\bold{V_GS}(\bold{V})$ | $\bold{R_on}(\boldsymbol\Omega)$ (Linear) | $\bold{R_on}(\boldsymbol\Omega)$ (Saturation) | $\lambda$ | $\bold{k_n}$ |
    | :---------------------: | ----------------------------------------- | --------------------------------------------- | --------- | ------------ |
-   |        $4.00\V$         |                                           |                                               |           |              |
-   |        $4.25\V$         |                                           |                                               |           |              |
+   |        $4.00\V$         | $327.99\ohm$                              | $8.793\k\ohm$                                 | $0.0387$  | $0.0004355$  |
+   |        $4.25\V$         | $328.68\ohm$                              | $7.617\k\ohm$                                 | $0.0383$  | $0.0004223$  |
 
