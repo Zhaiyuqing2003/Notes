@@ -48,13 +48,13 @@ Including, but not limited to, key visuals such as Shinji in the cockpit, Rei Ay
 
 The storytelling has changed a lot in the last episodes. Episodes 25 and 26, entitled 'Do you love me? ' and 'Take care of yourself.', respectively, have dropped their conventional ways of storytelling and are fragmented, introspective explorations of Shinji's psyche through abstract imagery and internal monologues. This reflects the director, Hideaki Anno's intention to portray inner turmoil and existential crises that the characters go through. According to *Looper*, 'The last two episodes of *Neon Genesis Evangelion* are, to put it reductively, unusual... comprised mostly of opaque philosophy..
 
-largely opaque philosophy.'  Despite its complex narrative, *Evangelion* was followed by a a vast array of merchandise and spin-offs which focused on a few particular aspects of the show's characters and design.  For example, Rei Ayanami's mysterious personality and unique character design made her a cultural icon.  There were figures, posters, and even fan conventions in her name. This quality falls in line with what Hiroki Azuma has termed 'database consumption', wherein the consumer revels in the fragments of the work, rather than its cohesive narrative.
+Despite its complex narrative, *Evangelion* was followed by a a vast array of merchandise and spin-offs which focused on a few particular aspects of the show's characters and design.  For example, Rei Ayanami's mysterious personality and unique character design made her a cultural icon.  There were figures, posters, and even fan conventions in her name. This quality falls in line with what Hiroki Azuma has termed 'database consumption', wherein the consumer revels in the fragments of the work, rather than its cohesive narrative.
 
 Azuma remarks, 'In the age of  database consumption, the grand narrative is replaced by a collection of settings and characters that can be recombined in various ways.' 
 
 This shift from narrative engagement to database consumption reflects the  fragmented nature of postmodern East Asian society, in which individuals  often find comfort in the isolating aspects of media with which they personally identify.\"
 
-**B: *Re:Zero − Starting Life in Another World***=
+**B: *Re:Zero − Starting Life in Another World***
 
 <Slide: Key visuals from *Re:Zero*: Subaru in various perilous situations,  character profiles of Rem and Emilia, and scenes depicting the fantasy  world.
 
