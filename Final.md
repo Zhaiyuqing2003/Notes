@@ -179,19 +179,25 @@ We have discussed memory management in the OS running on bare metal. Now, let’
 
 We learned in the class that on the `x86-64` architecture, upon a TLB miss, a nested translation takes a two-dimensional page table walk. How many memory accesses does it take in the worst case? Please illustrate the process and mark clearly which are in the guest and what are in the host. (2 point)
 
->In `x86-64`, 
+>In `x86-64`, if there is a TLB miss, there will involve a 4-level page table walk (`PML4 -> PDPT -> PD -> PT`). In guest environment, it will take 4 memory access to access entry for each level, but the guest physical address also needs to be translated into host physical address, which will take 4 memory access each for each guest physical address. So we have `4 * 4 = 16` total memory access therefore to translate the address.
 
 ### (2)
 
-To reduce the cost of the nested translation, our ex-TA Jiyuan proposes to use Huge Pages because Huge Pages can not only improve TLB coverage but also reduce page table walks. So, he comes up with the mechanism in the hypervisor which ensures that guest page tables are *always* allocated as 1GB huge pages in the host. So, with this approach, how many memory accesses does a nested translation take in the worst case? Please illustrate the process as in (1) (2 points) 
+To reduce the cost of the nested translation, our ex-TA Jiyuan proposes to use Huge Pages because Huge Pages can not only improve TLB coverage but also reduce page table walks. So, he comes up with the mechanism in the hypervisor which ensures that guest page tables are *always* allocated as 1GB huge pages in the host. So, with this approach, how many memory accesses does a nested translation take in the worst case? Please illustrate the process as in (1) (2 points)
+
+>In this case, the host could only traverse 2 levels of page table (`PML4 -> PDPT`) to convert each guest physical address to host physical address, but the guest still needs to traverse 4 levels of page table (`gPML4 -> gPDPT -> gPD -> gPT`) to convert guest virtual address to guest physical address. Therefore, we need 8 total memory access to translate the address.
 
 ### (3)
 
 Let’s implement Jiyuan’s approach on Linux. Can you describe what code needs to be changed and in which way – essentially how to make sure guest page tables are allocated in huge pages at the host? (2 points)
 
+>You first need to make sure huge pages are enabled on host Linux. Then you need to modify the behavior of the memory allocation strategy (the KVM code in this case `arch/x86/kvm/mmu.c`) where you need to change the standard memory allocation to 
+
 ### (4)
 
 Can you describe one scenario in which this approach does not work well, besides the potential internal fragmentation? (1 point)
+
+>
 
 ### (5)
 
@@ -200,3 +206,27 @@ Now, with the new system, how does the Page Fault Handler work? Please describe 
 ### (6)
 
 What are Jiyuan’s approach’s implications on the page fault handling, compared to vanilla Linux? (1 point)
+
+
+
+
+
+## File and Storage Systems (10 points)**
+
+
+
+A. We learned about file-system journaling. Let D, M, JM, JC denote data blocks, metadata blocks, journaled metadata, and journal commit blocks, respectively. Answer which of the following are correct protocols that ensure file-system metadata consistency. → denotes ordering constraint (via a barrier) and || indicates these IOs can happen concurrently.
+
+
+
+1. D||JM → JC → M
+
+\2. D → cksum(JM||JC) → M
+
+\3. D||cksum(JM||JC) → M
+
+\4. cksum(D||JM||JC) → M
+
+
+
+(4 points)
