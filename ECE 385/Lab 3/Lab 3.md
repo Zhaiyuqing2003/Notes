@@ -18,11 +18,7 @@ Note, all the block diagram could be found in the separate pdf submission.
 
 #### Carry Ripple Adder (CRA)
 
-##### Description
-
-The ripple adder is simplest form of adder. For 16-bit version, it consists of 16 full adders where each other get it's carry-in value from previous adder, and pass its carry-out value to next adder. The design is less prone to error and use smaller areas theoretically, yet each adder's result depends on previous one, so that the latency is relatively longer.
-
-##### Block diagram
+##### Descri![image-20250120105003569](../../../../../.var/app/io.typora.Typora/config/Typora/typora-user-images/image-20250120105003569.png)
 
 ![schematic_rotated](./Lab 3.assets/schematic_rotated-1695678153837-3.png)
 
